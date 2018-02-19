@@ -11,6 +11,7 @@ continuously for nearly 8 hours on a pair of AA batteries, and supports full
 For more detailed technical information, please see
 [the referred conference publication](https://lab11.eecs.umich.edu/content/pubs/kuo12sdr.pdf).
 
+![Photo of µSDR](photos/usdr.jpg)
 
 Project Status
 --------------
