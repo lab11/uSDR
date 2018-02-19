@@ -1,0 +1,25 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [SDR.PcbDoc]
+   Generated File[SDR.GTL]
+   Generated File[SDR.G1]
+   Generated File[SDR.G2]
+   Generated File[SDR.G3]
+   Generated File[SDR.G4]
+   Generated File[SDR.GBL]
+   Generated File[SDR.GTO]
+   Generated File[SDR.GTP]
+   Generated File[SDR.GTS]
+   Generated File[SDR.GBS]
+   Generated File[SDR.GBP]
+   Generated File[SDR.GBO]
+   Generated File[SDR.GKO]
+   Generated File[SDR.RUL]
+   Generated File[SDR.EXTREP]
+   Generated File[SDR.REP]
+
+
+Files Generated   : 16
+Documents Printed : 0
+
+Finished Output Generation At 10:17:06 AM On 6/29/2012

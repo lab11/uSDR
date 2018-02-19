@@ -1,0 +1,341 @@
+Removed Pin From Net: NetName=NetC98_2 Pin=FB6-1
+Removed Pin From Net: NetName=VCC2.5 Pin=FB6-2
+Removed Pin From Net: NetName=USB_VCC Pin=FB10-1
+Removed Pin From Net: NetName=UART_VCC Pin=FB10-2
+Removed Pin From Net: NetName=USB_VCC Pin=J17-1
+Removed Pin From Net: NetName=USB_D_N Pin=J17-2
+Removed Pin From Net: NetName=USB_D_P Pin=J17-3
+Removed Pin From Net: NetName=DGND Pin=J17-5
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=USER_IO0 Pin=P8-1
+Removed Pin From Net: NetName=USER_IO1 Pin=P8-2
+Removed Pin From Net: NetName=USER_IO2 Pin=P8-3
+Removed Pin From Net: NetName=USER_IO3 Pin=P8-4
+Removed Pin From Net: NetName=USER_IO4 Pin=P8-5
+Removed Pin From Net: NetName=USER_IO5 Pin=P8-6
+Removed Pin From Net: NetName=USER_IO6 Pin=P8-7
+Removed Pin From Net: NetName=USER_IO7 Pin=P8-8
+Removed Pin From Net: NetName=USER_IO8 Pin=P8-9
+Removed Pin From Net: NetName=USER_IO9 Pin=P8-10
+Removed Pin From Net: NetName=USER_IO10 Pin=P8-11
+Removed Pin From Net: NetName=USER_IO11 Pin=P8-12
+Removed Pin From Net: NetName=USER_IO12 Pin=P8-13
+Removed Pin From Net: NetName=USER_IO13 Pin=P8-14
+Removed Pin From Net: NetName=USER_IO14 Pin=P8-15
+Removed Pin From Net: NetName=USER_IO15 Pin=P8-16
+Removed Pin From Net: NetName=MSS_USER_IO0 Pin=P9-1
+Removed Pin From Net: NetName=MSS_USER_IO1 Pin=P9-2
+Removed Pin From Net: NetName=MSS_USER_IO2 Pin=P9-3
+Removed Pin From Net: NetName=MSS_USER_IO3 Pin=P9-4
+Removed Pin From Net: NetName=MSS_USER_IO4 Pin=P9-5
+Removed Pin From Net: NetName=MSS_USER_IO5 Pin=P9-6
+Removed Pin From Net: NetName=MSS_USER_IO6 Pin=P9-7
+Removed Pin From Net: NetName=MSS_USER_IO7 Pin=P9-8
+Removed Pin From Net: NetName=TCK Pin=P10-2
+Removed Pin From Net: NetName=TMS Pin=P10-3
+Removed Pin From Net: NetName=DGND Pin=P10-4
+Removed Pin From Net: NetName=DGND Pin=P10-5
+Removed Pin From Net: NetName=TDI Pin=P10-6
+Removed Pin From Net: NetName=VCC3.3 Pin=P10-7
+Removed Pin From Net: NetName=JTAG_TRSTB Pin=P10-8
+Removed Pin From Net: NetName=TDO Pin=P10-9
+Removed Pin From Net: NetName=VCC3.3 Pin=P10-10
+Removed Pin From Net: NetName=DGND Pin=P10-11
+Removed Pin From Net: NetName=DGND Pin=P10-12
+Removed Pin From Net: NetName=NetR10_1 Pin=R10-1
+Removed Pin From Net: NetName=NetC83_2 Pin=R10-2
+Removed Pin From Net: NetName=VCC2.5 Pin=R19-1
+Removed Pin From Net: NetName=TD_P Pin=R19-2
+Removed Pin From Net: NetName=NetR20_1 Pin=R20-1
+Removed Pin From Net: NetName=VCC3.3_ETH Pin=R20-2
+Removed Pin From Net: NetName=NetR56_1 Pin=R56-1
+Removed Pin From Net: NetName=VCC3.3 Pin=R56-2
+Removed Pin From Net: NetName=USER_LED7 Pin=R57-1
+Removed Pin From Net: NetName=NetD8_2 Pin=R57-2
+Removed Pin From Net: NetName=USER_LED6 Pin=R58-1
+Removed Pin From Net: NetName=NetD7_2 Pin=R58-2
+Removed Pin From Net: NetName=USER_LED5 Pin=R59-1
+Removed Pin From Net: NetName=NetD6_2 Pin=R59-2
+Removed Pin From Net: NetName=USER_LED4 Pin=R60-1
+Removed Pin From Net: NetName=NetD5_2 Pin=R60-2
+Removed Pin From Net: NetName=USER_LED3 Pin=R61-1
+Removed Pin From Net: NetName=NetD4_2 Pin=R61-2
+Removed Pin From Net: NetName=USER_LED2 Pin=R62-1
+Removed Pin From Net: NetName=NetD3_2 Pin=R62-2
+Removed Pin From Net: NetName=USER_LED1 Pin=R63-1
+Removed Pin From Net: NetName=NetD2_2 Pin=R63-2
+Removed Pin From Net: NetName=SCLK Pin=R81-1
+Removed Pin From Net: NetName=RF_SCLK Pin=R81-2
+Removed Pin From Net: NetName=DGND Pin=R84-1
+Removed Pin From Net: NetName=NetD9_2 Pin=R84-2
+Removed Member From Class: ClassName=U_ACE Member=C26
+Removed Member From Class: ClassName=U_ADC Member=C33
+Removed Member From Class: ClassName=U_ADC Member=C37
+Removed Member From Class: ClassName=U_ADC Member=C39
+Removed Member From Class: ClassName=U_DAC Member=C39
+Removed Member From Class: ClassName=U_ADC Member=C40
+Removed Member From Class: ClassName=U_ADC Member=C43
+Removed Member From Class: ClassName=U_DAC Member=C43
+Removed Member From Class: ClassName=U_ADC Member=C46
+Removed Member From Class: ClassName=U_DAC Member=C46
+Removed Member From Class: ClassName=U_DAC Member=C50
+Removed Member From Class: ClassName=U_DAC Member=C51
+Removed Member From Class: ClassName=U_DAC Member=C53
+Removed Member From Class: ClassName=U_DAC Member=C60
+Removed Member From Class: ClassName=U_DAC Member=C61
+Removed Member From Class: ClassName=U_DAC Member=C62
+Removed Member From Class: ClassName=U_DAC Member=C68
+Removed Member From Class: ClassName=U_Ethernet Member=C73
+Removed Member From Class: ClassName=U_Ethernet Member=C74
+Removed Member From Class: ClassName=U_Ethernet Member=C75
+Removed Member From Class: ClassName=U_Ethernet Member=C83
+Removed Member From Class: ClassName=U_Ethernet Member=C87
+Removed Member From Class: ClassName=U_Ethernet Member=C91
+Removed Member From Class: ClassName=U_RF Member=C91
+Removed Member From Class: ClassName=U_MSS_IO Member=C102
+Removed Member From Class: ClassName=U_RF Member=C102
+Removed Member From Class: ClassName=U_RF Member=C106
+Removed Member From Class: ClassName=U_RF Member=C108
+Removed Member From Class: ClassName=U_RF Member=C109
+Removed Member From Class: ClassName=U_RF Member=C110
+Removed Member From Class: ClassName=U_RF Member=C116
+Removed Member From Class: ClassName=U_RF Member=C117
+Removed Member From Class: ClassName=U_RF Member=C118
+Removed Member From Class: ClassName=U_PWR_Gen Member=C133
+Removed Member From Class: ClassName=U_PWR_Gen Member=C136
+Removed Member From Class: ClassName=U_usb_uart Member=C136
+Removed Member From Class: ClassName=U_PWR_Gen Member=C140
+Removed Member From Class: ClassName=U_usb_uart Member=C140
+Removed Member From Class: ClassName=U_PWR_Gen Member=C141
+Removed Member From Class: ClassName=U_PWR_Gen Member=C142
+Removed Member From Class: ClassName=U_PWR_Gen Member=C143
+Removed Member From Class: ClassName=U_PWR_Gen Member=C150
+Removed Member From Class: ClassName=U_PWR_Gen Member=C151
+Removed Member From Class: ClassName=U_PWR_Gen Member=D6
+Removed Member From Class: ClassName=U_usb_uart Member=D6
+Removed Member From Class: ClassName=U_PWR_Gen Member=L3
+Removed Member From Class: ClassName=U_DAC Member=R18
+Removed Member From Class: ClassName=U_Ethernet Member=R55
+Removed Member From Class: ClassName=U_MSS_IO Member=R79
+Removed Member From Class: ClassName=U_RF Member=R82
+Removed Member From Class: ClassName=U_MSS_IO Member=R83
+Removed Member From Class: ClassName=U_RF Member=R83
+Added Component: Designator=FB6(1608[0603])
+Added Component: Designator=FB10(1608[0603])
+Added Component: Designator=J17(Mini USB)
+Added Component: Designator=P8(HDR2X8)
+Added Component: Designator=P9(HDR2X4)
+Added Component: Designator=P10(HDR2X6)
+Added Component: Designator=R10(0402)
+Added Component: Designator=R19(0402)
+Added Component: Designator=R20(0402)
+Added Component: Designator=R56(0402)
+Added Component: Designator=R57(0402)
+Added Component: Designator=R58(0402)
+Added Component: Designator=R59(0402)
+Added Component: Designator=R60(0402)
+Added Component: Designator=R61(0402)
+Added Component: Designator=R62(0402)
+Added Component: Designator=R63(0402)
+Added Component: Designator=R81(0402)
+Added Component: Designator=R84(0402)
+Added Pin To Net: NetName=NetC98_2 Pin=FB6-1
+Added Pin To Net: NetName=VCC2.5 Pin=FB6-2
+Added Pin To Net: NetName=USB_VCC Pin=FB10-1
+Added Pin To Net: NetName=UART_VCC Pin=FB10-2
+Added Pin To Net: NetName=USB_VCC Pin=J17-1
+Added Pin To Net: NetName=USB_D_N Pin=J17-2
+Added Pin To Net: NetName=USB_D_P Pin=J17-3
+Added Pin To Net: NetName=DGND Pin=J17-5
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=USER_IO0 Pin=P8-1
+Added Pin To Net: NetName=USER_IO1 Pin=P8-2
+Added Pin To Net: NetName=USER_IO2 Pin=P8-3
+Added Pin To Net: NetName=USER_IO3 Pin=P8-4
+Added Pin To Net: NetName=USER_IO4 Pin=P8-5
+Added Pin To Net: NetName=USER_IO5 Pin=P8-6
+Added Pin To Net: NetName=USER_IO6 Pin=P8-7
+Added Pin To Net: NetName=USER_IO7 Pin=P8-8
+Added Pin To Net: NetName=USER_IO8 Pin=P8-9
+Added Pin To Net: NetName=USER_IO9 Pin=P8-10
+Added Pin To Net: NetName=USER_IO10 Pin=P8-11
+Added Pin To Net: NetName=USER_IO11 Pin=P8-12
+Added Pin To Net: NetName=USER_IO12 Pin=P8-13
+Added Pin To Net: NetName=USER_IO13 Pin=P8-14
+Added Pin To Net: NetName=USER_IO14 Pin=P8-15
+Added Pin To Net: NetName=USER_IO15 Pin=P8-16
+Added Pin To Net: NetName=MSS_USER_IO0 Pin=P9-1
+Added Pin To Net: NetName=MSS_USER_IO1 Pin=P9-2
+Added Pin To Net: NetName=MSS_USER_IO2 Pin=P9-3
+Added Pin To Net: NetName=MSS_USER_IO3 Pin=P9-4
+Added Pin To Net: NetName=MSS_USER_IO4 Pin=P9-5
+Added Pin To Net: NetName=MSS_USER_IO5 Pin=P9-6
+Added Pin To Net: NetName=MSS_USER_IO6 Pin=P9-7
+Added Pin To Net: NetName=MSS_USER_IO7 Pin=P9-8
+Added Pin To Net: NetName=TCK Pin=P10-2
+Added Pin To Net: NetName=TMS Pin=P10-3
+Added Pin To Net: NetName=DGND Pin=P10-4
+Added Pin To Net: NetName=DGND Pin=P10-5
+Added Pin To Net: NetName=TDI Pin=P10-6
+Added Pin To Net: NetName=VCC3.3 Pin=P10-7
+Added Pin To Net: NetName=JTAG_TRSTB Pin=P10-8
+Added Pin To Net: NetName=TDO Pin=P10-9
+Added Pin To Net: NetName=VCC3.3 Pin=P10-10
+Added Pin To Net: NetName=DGND Pin=P10-11
+Added Pin To Net: NetName=DGND Pin=P10-12
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetC83_2 Pin=R10-2
+Added Pin To Net: NetName=VCC2.5 Pin=R19-1
+Added Pin To Net: NetName=TD_P Pin=R19-2
+Added Pin To Net: NetName=NetR20_1 Pin=R20-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=R20-2
+Added Pin To Net: NetName=NetR56_1 Pin=R56-1
+Added Pin To Net: NetName=VCC3.3 Pin=R56-2
+Added Pin To Net: NetName=USER_LED7 Pin=R57-1
+Added Pin To Net: NetName=NetD8_2 Pin=R57-2
+Added Pin To Net: NetName=USER_LED6 Pin=R58-1
+Added Pin To Net: NetName=NetD7_2 Pin=R58-2
+Added Pin To Net: NetName=USER_LED5 Pin=R59-1
+Added Pin To Net: NetName=NetD6_2 Pin=R59-2
+Added Pin To Net: NetName=USER_LED4 Pin=R60-1
+Added Pin To Net: NetName=NetD5_2 Pin=R60-2
+Added Pin To Net: NetName=USER_LED3 Pin=R61-1
+Added Pin To Net: NetName=NetD4_2 Pin=R61-2
+Added Pin To Net: NetName=USER_LED2 Pin=R62-1
+Added Pin To Net: NetName=NetD3_2 Pin=R62-2
+Added Pin To Net: NetName=USER_LED1 Pin=R63-1
+Added Pin To Net: NetName=NetD2_2 Pin=R63-2
+Added Pin To Net: NetName=SCLK Pin=R81-1
+Added Pin To Net: NetName=RF_SCLK Pin=R81-2
+Added Pin To Net: NetName=DGND Pin=R84-1
+Added Pin To Net: NetName=NetD9_2 Pin=R84-2
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C8 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C9 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C10 Cap Pol3
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C25 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C26 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C27 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C29 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C30 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C31 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C33 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C34 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C35 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C36 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C37 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C38 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C39 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C40 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C41 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C42 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C43 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C44 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C45 Cap Semi
+Added Member To Class: ClassName=U_Digital_PWR Member=Component C46 Cap Semi
+Added Member To Class: ClassName=U_ACE Member=Component C47 Cap Pol3
+Added Member To Class: ClassName=U_ACE Member=Component C48 Cap Pol3
+Added Member To Class: ClassName=U_ACE Member=Component C49 Cap Pol3
+Added Member To Class: ClassName=U_ACE Member=Component C52 Cap Pol3
+Added Member To Class: ClassName=U_ADC Member=Component C55 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C56 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C57 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C58 Cap Pol3
+Added Member To Class: ClassName=U_ADC Member=Component C59 Cap Pol3
+Added Member To Class: ClassName=U_ADC Member=Component C63 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C64 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C65 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C66 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C69 Cap Semi
+Added Member To Class: ClassName=U_ADC Member=Component C72 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C76 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C77 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C78 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C79 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C80 Cap Pol3
+Added Member To Class: ClassName=U_DAC Member=Component C81 Cap Pol3
+Added Member To Class: ClassName=U_DAC Member=Component C82 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C85 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C88 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C89 Cap Semi
+Added Member To Class: ClassName=U_DAC Member=Component C92 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C93 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C94 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C95 Cap Pol3
+Added Member To Class: ClassName=U_Ethernet Member=Component C96 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C97 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C99 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C103 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C107 Cap Semi
+Added Member To Class: ClassName=U_MSS_IO Member=Component C115 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C119 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C120 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C121 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C122 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C123 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C124 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C125 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C126 Cap Pol3
+Added Member To Class: ClassName=U_RF Member=Component C127 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C128 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C129 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C130 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C131 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C132 Cap Pol3
+Added Member To Class: ClassName=U_RF Member=Component C134 Cap Pol3
+Added Member To Class: ClassName=U_RF Member=Component C135 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C138 Cap Semi
+Added Member To Class: ClassName=U_usb_uart Member=Component C145 Cap Semi
+Added Member To Class: ClassName=U_usb_uart Member=Component C146 Cap Semi
+Added Member To Class: ClassName=U_usb_uart Member=Component C147 Cap Semi
+Added Member To Class: ClassName=U_usb_uart Member=Component C148 Cap Pol3
+Added Member To Class: ClassName=U_usb_uart Member=Component C149 Cap Semi
+Added Member To Class: ClassName=U_usb_uart Member=Component C152 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C153 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C154 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C155 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C156 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C159 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C160 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C161 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C162 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C163 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C164 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C165 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C166 Cap Semi
+Added Member To Class: ClassName=U_Fabric_IO Member=Component D1 LED2
+Added Member To Class: ClassName=U_usb_uart Member=Component D9 LED2
+Added Member To Class: ClassName=U_PWR_Gen Member=Component D10 LED2
+Added Member To Class: ClassName=U_Digital_PWR Member=Component FB3 BLM18PG300SN1D
+Added Member To Class: ClassName=U_ADC Member=Component FB4 BLM18PG300SN1D
+Added Member To Class: ClassName=U_Ethernet Member=Component FB7 BLM18PG300SN1D
+Added Member To Class: ClassName=U_ACE Member=Component L2 Inductor
+Added Member To Class: ClassName=U_PWR_Gen Member=Component L4 FP3-8R2-R
+Added Member To Class: ClassName=U_ADC Member=Component R2 Res3
+Added Member To Class: ClassName=U_DAC Member=Component R15 Res3
+Added Member To Class: ClassName=U_Ethernet Member=Component R44 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R64 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R66 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R68 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R69 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R70 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R72 Res3
+Added Member To Class: ClassName=U_RF Member=Component R76 Res3
+Added Member To Class: ClassName=U_RF Member=Component R77 Res3
+Added Member To Class: ClassName=U_ADC Member=Component U4 MAX6061AEUR+T
+Added Member To Class: ClassName=U_ADC Member=Component U5 AD9288BSTZ-100
+Added Member To Class: ClassName=U_DAC Member=Component U6 MAX6061AEUR+T
+Added Member To Class: ClassName=U_DAC Member=Component U7 MAX5189BEEI+
+Added Member To Class: ClassName=U_Ethernet Member=Component U8 KSZ8721CL
+Added Member To Class: ClassName=U_Ethernet Member=Component U9 SN74LVC1G04DBVR
+Added Member To Class: ClassName=U_RF Member=Component U10 MAX2831ETM+
+Added Member To Class: ClassName=U_RF Member=Component U11 ADC081S101
+Added Member To Class: ClassName=U_usb_uart Member=Component U12 FT232RL
+Added Member To Class: ClassName=U_PWR_Gen Member=Component U13 LT1117CST-3.3#PBF
+Added Member To Class: ClassName=U_PWR_Gen Member=Component U16 TL7702AIDR
+Added Member To Class: ClassName=U_RF_2 Member=Component U19 HHM1520A2

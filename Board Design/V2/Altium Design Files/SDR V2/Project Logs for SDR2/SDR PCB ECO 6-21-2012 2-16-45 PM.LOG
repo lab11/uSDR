@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=DGND Pin=C182-1
+Removed Pin From Net: NetName=VCC2.85 Pin=C182-2
+Removed Pin From Net: NetName=DGND Pin=C183-1
+Removed Pin From Net: NetName=VCC2.85 Pin=C183-2
+Removed Pin From Net: NetName=VCC2.85 Pin=C185-1
+Removed Pin From Net: NetName=DGND Pin=C185-2
+Removed Member From Class: ClassName=U_PWR_Gen Member=C182
+Removed Member From Class: ClassName=U_PWR_Gen Member=C183
+Removed Member From Class: ClassName=U_PWR_Gen Member=C185

@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=RF_R\X\/TX Pin=U18-6
+Removed Pin From Net: NetName=RF_R\X\/TX Pin=U20-2
+Removed Pin From Net: NetName=RF_RX/T\X\ Pin=U20-4
+Added Component: Designator=R94(0402)
+Added Pin To Net: NetName=RF_R\X\/TX Pin=R94-1
+Added Pin To Net: NetName=RF_RX/T\X\ Pin=U20-2
+Change Net Name : Old Net Name=RF_RX/T\X\ New Net Name=RX/T\X\
+Added Pin To Net: NetName=R\X\_TX Pin=R94-2
+Added Pin To Net: NetName=R\X\_TX Pin=U18-6
+Added Pin To Net: NetName=R\X\_TX Pin=U20-4
+Added Net: Name=R\X\_TX
+Added Member To Class: ClassName=U_RF_2 Member=Component R94 Res3

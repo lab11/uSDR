@@ -1,0 +1,64 @@
+\section{Discussion}
+\label{sec:disc}
+\begin{comment}
+We built \sdr with the intention to see how close we can get to the claims
+presented in~\cite{dutta-low-cal}. This section will look at the four
+different requirements {\em Radio Duty-Cycling}, \emph{Low-Power FPGA},
+\emph{System Integration}, and \emph{Measurement} and compare the current \sdr
+platform to the performance it is supposed to achieve in order to compete with
+current commercially available low-power wireless radios.
+\end{comment}
+
+This section looks at the radio requirements claimed in prior work
+and comparing the current \sdr
+to the performance it is supposed to achieve in order to compete with
+current commercially available low-power wireless radios.
+
+\subsection{Radio Duty-Cycling}
+
+Typical duty-cycled radio platforms achieve $<$1~mW sleep power, wake up in
+$\mu$s, and draw tens to hundreds of mW while actively using the radio. \sdr
+draws in it's lowest sleep state 322~mW (wakeup in 3.01~ms) or 518~mW (wakeup in
+34~$\mu$s). During transmit, \sdr draws 1.4~W, and 1~W while receiving.
+While the sleep current is still three orders of magnitude greater than typical
+duty-cycled systems, it is a good start to explore the space of battery
+powered SDR platforms since nodes can last for many hours on `AA' batteries. 
+
+\begin{comment}
+Comparing this to an iPhone~4S which has a battery
+capacity of 5.3~Whr, we can power \sdr for 3.8~hours while constantly
+transmitting, or 16.4~hours in deep sleep. Thus, using a moderate amount of
+duty-cycling, a 12~hour deployment time could easily be achieved.
+\end{comment}
+
+\subsection{Low-Power FPGA}
+
+During sleep mode, radio frontend,
+ADC, and DAC support sleep modes in the $\mu$W range.
+Still, \sdr draws hundreds of mW. Unfortunately, the SmartFusion
+does not include the latest Flash*Freeze technology, allowing to clock-gate
+the FPGA itself. Thus, even in deep sleep, the FPGA is still running and
+wasting energy. We expect that future iterations of the SmartFusion will
+include such technology.
+
+\begin{comment}
+\subsection{System Integration}
+
+\sdr significantly departed from the common platform reconfigurability of
+typical SDR systems, integrating everything onto a 91~cm$^\mathrm{2}$ sized PCB. This
+reduced cost to $<$\$150. While we didn't achieve the expected \$100 suggested
+in \cite{dutta-low-cal}, we got really close. We expect that with larger
+quantities and the commoditization of these mixed-signal FPGAs with
+hard-silicon cores, the total price would fall and drop below the magical
+\$100 mark.
+
+\subsection{Measurement}
+
+The current iteration of the \sdr platform does not include any energy
+metering capabilities that are exposed to the application processor. While we
+can measure the external power draw on the different power rails, there are no
+components of the SmartFusion connected to meter those rails internally.
+However, the SmartFusion has a full Analog Compute Engine with up to 12 direct ADC
+inputs. The current \sdr platform does not take advantage of any of them,
+and we plan to add this support in the next iteration of the platform.
+\end{comment}

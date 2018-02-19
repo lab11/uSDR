@@ -1,0 +1,137 @@
+% Change to use the correct class file for your paper.
+\documentclass{sig-alternate}
+%\nocopyrightspacetrue
+
+%\pagenumbering{arabic}
+
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{endnotes}
+\usepackage{graphicx}    % For importing graphics
+\usepackage[draft]{hyperref}    % Creates hyperlinks from ref/cite 
+%\usepackage{hyperref}    % Creates hyperlinks from ref/cite 
+\usepackage{multirow}
+\hypersetup{pdfstartview=FitH}
+%\usepackage{subfig}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{url}         %
+\usepackage{xspace}
+%\usepackage[bf,skip=5pt]{caption}
+\usepackage[skip=5pt]{caption}
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{threeparttable}
+
+\DeclareCaptionType{copyrightbox}
+
+\newlength\SUBSIZE
+
+\renewcommand{\arraystretch}{1.2} % Space out rows in tables
+
+\newcommand{\projname}{Super Super Sweet (S$^3$) Project Name\xspace}
+\newcommand{\ra}{$\rightarrow$\xspace}
+
+\setlength\paperheight {11in}
+\setlength\paperwidth {8.5in}
+
+% Set the graphics path
+\graphicspath{{../figs/}{../images/build/}}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+
+% No space between bibliography items:
+\let\oldthebibliography=\thebibliography
+  \let\endoldthebibliography=\endthebibliography
+  \renewenvironment{thebibliography}[1]{%
+    \begin{oldthebibliography}{#1}%
+      \setlength{\parskip}{0ex}%
+      \setlength{\itemsep}{0ex}%
+  }%
+  {%
+    \end{oldthebibliography}%
+  }
+\setlength{\parindent}{5mm}
+
+\newcommand{\sdr}{$\mu$SDR\xspace}
+\newcommand{\realtilde}{\raise.17ex\hbox{$\scriptstyle\sim$}}
+
+\begin{document}
+
+%\crdata{978-1-4503-1169-4}
+\conferenceinfo{ISLPED '12 Design Contest} {Redondo Beach, California, USA}
+%\CopyrightYear{2012}
+%\CopyrightYear{} 
+%\crdata{}
+\clubpenalty=10000 
+\widowpenalty = 10000
+
+%\title{A Compact, Inexpensive, and Battery-Powered\\
+%  Software-Defined Radio Platform}
+%\title{Reconfiguring the Software-Defined Radio\\to Improve Power,
+%  Price, and Proportions}
+\title{Reconfiguring the Software Radio to\\Improve Power, Price, and
+  Portability}
+
+%\numberofauthors{4}
+
+\author{
+%\begin{tabular}{cc}
+%  \multicolumn{2}{c}{Ye-Sheng Kuo$^\dagger$, Pat Pannuto$^\dagger$, Thomas Schmid$^\ddagger$, and Prabal Dutta$^\dagger$\vspace{0.3cm}} \\
+%  \affaddr{$^\dagger$Computer Science \& Engineering Division} & \affaddr{$^\ddagger$Electrical and Computer Engineering Dept} \\ 
+%  \affaddr{University of Michigan} & \affaddr{University of Utah} \\
+%  \affaddr{Ann Arbor, MI 48109} & \affaddr{Salt Lake City, UT 84112} \\
+%  \affaddr{\{samkuo,ppannuto,prabal\}@eecs.umich.edu} & \affaddr{thomas.schmid@utah.edu} \\
+%\end{tabular}
+%\alignauthor{paper \#46}\\
+}
+
+\maketitle
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\begin{comment}
+\category{B.4.1}{HARDWARE}{Input/Output and Data
+  Communications}[Input/Output Devices]
+\category{C.3}{COMPUTER SYSTEMS ORGANIZATION}{Spe\-cial-Purpose and App\-li\-cation-Based Systems}
+\terms{Design, Experimentation, Measurement, Performance}
+\keywords{Software-Defined Radio, IEEE 802.15.4} 
+\end{comment}
+
+%\vfill\eject
+
+% page limit          % 14.0 pg
+
+% abstract            % 0.5 pg
+%\vfill\eject
+\input{intro}         % 1.5 pg
+\input{related}       % 1.5 pg
+%\clearpage
+\input{arch}          % 2.5 pg
+%\input{applications}  % 2.5 pg
+\input{eval}          % 4.0 pg
+\input{disc}          % 0.5 pg
+\input{conc}          % 0.25 pg
+%\input{ack}           % 0.25 pg
+%\clearpage
+
+%\theendnotes
+
+{%\footnotesize
+\raggedright
+\bibliographystyle{abbrv}
+\bibliography{bib}
+}
+
+\end{document}
+

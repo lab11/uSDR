@@ -1,0 +1,10 @@
+Added Component: Designator=P9(2x4 header)
+Added Pin To Net: NetName=MSS_USER_IO0 Pin=P9-1
+Added Pin To Net: NetName=MSS_USER_IO1 Pin=P9-2
+Added Pin To Net: NetName=MSS_USER_IO2 Pin=P9-3
+Added Pin To Net: NetName=MSS_USER_IO3 Pin=P9-4
+Added Pin To Net: NetName=MSS_USER_IO4 Pin=P9-5
+Added Pin To Net: NetName=MSS_USER_IO5 Pin=P9-6
+Added Pin To Net: NetName=MSS_USER_IO6 Pin=P9-7
+Added Pin To Net: NetName=MSS_USER_IO7 Pin=P9-8
+Added Member To Class: ClassName=U_MSS_IO Member=Component P9 2 x 4 header

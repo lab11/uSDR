@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{alteraSoC}
+ALTERA.
+\newblock {Cyclone V SoC FPGA Hard Processor System}.
+
+\bibitem{warp-platform}
+K.~Amiri, Y.~Sun, P.~Murphy, C.~Hunter, J.~Cavallaro, and A.~Sabharwal.
+\newblock Warp, a unified wireless network testbed for education and research.
+\newblock In {\em Microelectronic Systems Education, 2007. MSE '07. IEEE
+  International Conference on}, pages 53 --54, june 2007.
+
+\bibitem{usrp:e100}
+{Ettus Research}.
+\newblock {USRP E100}.
+
+\bibitem{usrp:n200}
+{Ettus Research}.
+\newblock {USRP N200}.
+
+\bibitem{pentium-m}
+Intel.
+\newblock Intel pentium mobile processor, Apr. 2012.
+
+\bibitem{SCA}
+{JTRS Standards}.
+\newblock {SOFTWARE COMMUNICATIONS ARCHITECTURE SPECIFICATION}.
+
+\bibitem{soda}
+Y.~Lin, H.~Lee, M.~Woh, Y.~Harel, S.~Mahlke, T.~Mudge, C.~Chakrabarti, and
+  K.~Flautner.
+\newblock Soda: A low-power architecture for software radio.
+\newblock In {\em Proceedings of the 33rd annual international symposium on
+  Computer Architecture}, ISCA '06, pages 89--101, Washington, DC, USA, 2006.
+  IEEE Computer Society.
+
+\bibitem{igloo}
+{Microsemi}.
+\newblock {Microsemi IGLOO Series}.
+
+\bibitem{kuar}
+G.~Minden, J.~Evans, L.~Searl, D.~DePardo, V.~Petty, R.~Rajbanshi, T.~Newman,
+  Q.~Chen, F.~Weidling, J.~Guffey, D.~Datla, B.~Barker, M.~Peck, B.~Cordill,
+  A.~Wyglinski, and A.~Agah.
+\newblock Kuar: A flexible software-defined radio development platform.
+\newblock In {\em New Frontiers in Dynamic Spectrum Access Networks, 2007.
+  DySPAN 2007. 2nd IEEE International Symposium on}, pages 428 --439, april
+  2007.
+
+\bibitem{mitola2000sdr}
+J.~Mitola~III.
+\newblock {SDR} architecture refinement for {JTRS}.
+\newblock In {\em MILCOM 2000. 21st Century Military Communications Conference
+  Proceedings}, volume~1, pages 214--218. IEEE, 2000.
+
+\bibitem{cmu-mac-sdr}
+G.~Nychis, T.~Hottelier, Z.~Yang, S.~Seshan, and P.~Steenkiste.
+\newblock Enabling mac protocol implementations on software-defined radios.
+\newblock In {\em Proceedings of the 6th USENIX symposium on Networked systems
+  design and implementation}, NSDI'09, pages 91--105, Berkeley, CA, USA, 2009.
+  USENIX Association.
+
+\bibitem{vocallo}
+{Octasic Inc.}
+\newblock {Vocallo BTS}.
+
+\bibitem{patridge:SDR}
+C.~Patridge.
+\newblock Realizing the future of wireless data communications.
+\newblock {\em COMMUNICATIONS OF THE ACM}, 54(9):62--68, September 2011.
+
+\bibitem{schmid-latency}
+T.~Schmid, O.~Sekkat, and M.~B. Srivastava.
+\newblock An experimental study of network performance impact of increased
+  latency in software defined radios.
+\newblock In {\em Proceedings of the second ACM international workshop on
+  Wireless network testbeds, experimental evaluation and characterization},
+  WinTECH '07, pages 59--66, New York, NY, USA, 2007. ACM.
+
+\bibitem{sora}
+K.~Tan, H.~Liu, J.~Zhang, Y.~Zhang, J.~Fang, and G.~M. Voelker.
+\newblock Sora: high-performance software radio using general-purpose
+  multi-core processors.
+\newblock {\em Commun. ACM}, 54(1):99--107, Jan. 2011.
+
+\bibitem{zynq}
+Xilinx.
+\newblock {XILINX ZYNQ-7000 EPP}.
+
+\end{thebibliography}

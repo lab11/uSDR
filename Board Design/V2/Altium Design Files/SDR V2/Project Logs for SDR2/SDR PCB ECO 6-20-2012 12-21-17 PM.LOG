@@ -1,0 +1,5 @@
+Added Component: Designator=R93(0402)
+Added Pin To Net: NetName=NetR34_1 Pin=R93-1
+Added Pin To Net: NetName=DGND Pin=R93-2
+Change Net Name : Old Net Name=NetR34_1 New Net Name=P\D\
+Added Member To Class: ClassName=U_Ethernet Member=Component R93 Res3

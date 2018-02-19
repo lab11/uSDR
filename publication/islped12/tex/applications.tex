@@ -1,0 +1,351 @@
+\section{Applications}
+\label{sec:applications}
+
+\begin{table}[b]
+\centering
+\begin{threeparttable}
+\begin{tabularx}{\columnwidth}{|X|X|X|}
+    \rowcolor[gray]{0}
+   {\sc {\color{white} Component}}
+ & {\sc {\color{white} Area}}
+ & {\sc {\color{white} Max Freq}}
+\\\hline
+TX & 20\% & 100 MHz \\\hline
+RX & 72\%\tnote{a} & 80 MHz\tnote{b} \\\hline
+\end{tabularx}
+\begin{tablenotes}
+	\small
+	\item [a] Area optimized for minimum required frequency of 16~MHz.
+	\item [b] Speed optimized increases area to 78\%.
+\end{tablenotes}
+\caption{FPGA size and corresponding maximum frequency. The area with
+respect to the 500k gate SmartFusion A2F500. The transmitter is limited by
+80~MHz DAC, while the receiver is FPGA limited.}
+\label{tab:area}
+\end{threeparttable}
+\end{table} 
+This section presents the viability of using the \sdr platform to communicate
+with standards compliant low-power radios. We decided to implement IEEE
+802.15.4, a non-trivial physical communication specification used in many
+short-range, low-power radios. 
+
+The short-range low-power wireless standard IEEE 802.15.4 describes the
+physical layer and frame structure, leaving the higher layers up to the
+developer to design. IEEE 802.15.4 uses spread spectrum technology to increase
+its resilience towards channel noise. Every 4-bit data sequence gets mapped to
+a 32-bit long chip sequence. This chip sequence is then modulated as an
+offset quadrature phase-shift keying (O-QPSK) signal with half-sine pulses. The sixteen
+32-bit chip sequences are chosen such that their autocorrelation is minimized.
+This allows a receiver to compare incoming chip sequences to one of the sixteen
+existing sequences, allowing for errors within the received
+sequence, but resulting in a successful sequence detection with high
+probability.
+
+IEEE 802.15.4 is a packet-based standard. Each packet, or frame, consists of a
+pre-defined sequence. At first, every packet starts with a preamble of four
+bytes of 0x00. This is followed by the Start of Frame Delimiter (SFD) byte
+0xA7. The preamble is used to condition a radio and detect an incoming packet,
+while the SFD signals the beginning of the data. The first data byte has to be
+the length of the rest of the packet. Following the length byte comes the
+Frame Control Field (FCF). The FCF is a two byte value indicating different
+properties of the message, such as addressing mode (length of addresses used),
+is an acknowledgment requested, etc. Following the FCF comes a one byte
+sequence number (Data Sequence Number, DSN) followed by the address
+information. For data integrity, IEEE 802.15.4 uses a two byte long Cyclic Redundancy Check
+(CRC). The CRC is added to the very end of a message.
+
+Figure \ref{fig:system_arch} shows the general \sdr architecture. For our IEEE
+802.15.4 implementation, we implemented a transmitter with O-QPSK modulator
+representing the transmit path. For the receiver we exploit the fact that
+O-QPSK with half-sine pulse shapes is equivalent to minimum shift keying
+(MSK), and thus we use an FM demodulator. The following sections go into
+details of the specific implementations. To exemplify the potential of the
+\sdr platform, we describe in Section \ref{subsec:enhance} enhancements we
+performed that usually are not found on commercial radios, but support recent
+advances in wireless protocol designs.
+
+%Different SDR platforms target different design spaces, ranging from
+%full-software inmplementation on a general purpose processor like in GNU
+%Radio or MSR's SORA, to radios with highly reconfigurable hardware like the
+%WARP. \sdr explores the architecture trade-off between hardware and software
+%to build a SDR platform which is well suited for mobile, low-power
+%applications. Compared to GNU Radio or MSR's SORA which use a commodity PC as
+%baseband processor, \sdr has limited computing resources available. Therefore,
+%\sdr implements the basic radio functions in the reconfigurable hardware.
+%While this puts a bigger burden on the developer, as the radio blocks have to
+%be implemented in a Hardware Description Language (HDL), it makes the system
+%resemble regular radios, as the interface between software and hardware
+%are memory-mapped registers. 
+
+\subsection{Transmitter}
+
+We implemented the full transceiver chain as a memory-mapped peripheral on the
+FPGA. This reduces the burden and complexity of the software. To send out a
+message, the core transfers the packet from memory into a transmit fifo (see
+Figure \ref{fig:transmitting_chain}). The processor can start the transmission
+before the full packet is uploaded by sending a transmit command to the
+peripheral. The peripheral starts encoding the packet, starting with the
+preamble, SFD, and FCF, before adding the bytes from the transmit fifo. The
+bytes go through several encoding steps, translating from half-bytes (4-bit) to
+chip sequence (32-bit), and finally getting mapped to an O-QPSK signal with
+half-sine pulse shapes on the in-phase and quadrature band. All these
+translations are done by using lookup tables, simplifying the implementation
+while providing high-speed processing.
+
+The transmit fifo shares the transmit chain with two other fifos for
+automatic acknowledgment generation and rapid message forwarding. An access
+control logic grants permission to a fifo if the fifo has data to transmit,
+and the transmit chain is currently empty. Section \ref{subsec:ack} and
+\ref{subsec:forward} will go into more details on these two fifos.
+
+\begin{figure}[bht]
+\centering
+\includegraphics[width=0.98\columnwidth]{transmitting_arch}
+\caption{IEEE 802.15.4 transmitter implementation. Three input FIFOs feed the
+modulator implemented as lookup tables for byte to chip, and chip to half-sine
+pulse mapping. This provides a compact and simple O-QPSK implementation with
+support of automatic ACK generation and fast packet forwarding mechanisms.}
+\label{fig:transmitting_chain}
+\end{figure}
+
+\subsection{Receiver}
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.98\columnwidth]{receiving_arch}
+\caption{IEEE 802.15.4 receiver implementation. Our implementation exploits
+the fact that O-QPSK modulation can be decoded as MSK with adaptation of the
+chip sequences. This simplifies the decoder implementation.}
+\label{fig:receiving_arch}
+\end{figure}
+
+The implemented receiver chain (compare Figure \ref{fig:receiving_arch} resembles
+the GNU Radio IEEE 802.15.4 receiver implementation described in
+\cite{Schmid:802.15.4}. It exploits the fact that an O-QPSK modulated signal
+with half-sine pulse shapes is equivalent to a minimum-shift keying (MSK)
+signal, and thus a simpler frequency shift keying (FSK) demodulator can be
+used to extract the chip sequence from the data stream \cite{cmos:rfic}. The
+FSK-demodulator uses the in-phase and quadrature components coming from the RF
+chip at 16~MS/s and produces an amplitude modulated (AM) signal, where the amplitude
+corresponds to the frequency of the incoming signal. A matched filter
+integrates the AM signal. The filter is sampled at the chip-frequency of
+2~MS/s, indicating a logic 1 or 0. A preamble detection mechanism searches for
+a 0x00 (a chip sequence of 64 bits) to identify incoming
+packets. It also performs clock synchronization by occasionally adjusting the matched
+filter. The receiver then calculates the Hamming distance $D$ between detected
+symbols and the known chip sequences. The decoded symbol is the
+index of the sequence that has the minimum distance $D$ from the sampled
+sequence. The smaller the distance $D$ from a known chip sequence, the higher
+the probability for a correct decoding. Once the symbol is decoded, the
+receiver stores the decoded symbol in a \emph{RX fifo} and performs the frame
+filtering. Various interrupts (detection of the start of frame delimiter SFD,
+Length, Packet completed etc) are generated during the frame filtering,
+informing the processor of the different events happening in the decoder.
+These interrupts are crucial for timely processing inside the software
+implementation of a MAC protocol.
+Once a packet is fully received (e.g. when the processor receives the Packet Completed 
+interrupt), the processor copies the packet from the RX fifo using a DMA
+transfer into RAM for further processing.
+
+\subsection{Radio and Automatic Gain Control}
+
+A flexible SDR system needs fast and extensive control over the radio frontend
+in order to be agile and adapt to a changing RF environment. The MAX2831
+provides a 3-wire SPI interface for configuration, a 7~bit parallel bus for only gain
+control, and an analog output providing the received signal strength. An
+additional I/O line switches the frontend from receive to transmit, i.e., the
+chip can not be used for full-duplex radio communication.
+
+We offload as much of the radio control into the FPGA as possible. This 
+simplifies the software to memory-mapped operations instead of dealing with a
+stand alone SPI interface and incurring potential software interrupt
+latencies. In addition, it speeds up the control loop and allows us to send
+commands to the radio within $\mu$s. For example, the MAX2831 does not provide an
+Automatic Gain Controller (AGC) built into the package. Thus, the FPGA has to
+measure the RSSI, and adjust the radio gain through the SPI 
+interface. The AGC loop tunes the gain setting within 5~$\mu$s without having
+to involve the processor. This high speed AGC keeps tuning the gain setting to
+prevent abrupt changes in signal strength and maintains a constant signal
+amplitude.
+
+\subsection{Hardware ACK Generation}\label{subsec:ack}
+
+Many wireless protocols rely on acknowledgment messages (ACK) to ensure the
+reliability of a transmission. According to IEEE 802.15.4, if a receiver
+received a packet requesting an ACK, it has to generate an ACK frame and respond
+to the transmitter in precisely 192 $\mu$s. Meeting this timing constraint can
+be difficult for an SDR platform if they rely on the processor to software
+decode the signal. Pure software decoding is favorable from a software
+engineering's perspective, as more resources and code libraries are available.
+In addition, the code can be written in a higher level language, such as C/C++
+or Python. However, software decoding platforms must have enough computing
+resources and low-latency interfaces between the processor and radio to meet
+the stringent timing constraints. In most SDR systems, the interface between
+the processor and the radio frontend is considered the data bottleneck.
+
+Meeting those strict timing constraints has become a challenge to SDR
+platforms. Nychis et al. characterize in \cite{2009.Nychis.nsdi} various
+latencies from the Linux kernel to the Universal Software Radio Peripheral's
+FPGA. Their results showed that it can take up to 9,000~$\mu$s with a mean
+latency of 612~$\mu$s to get data from the Linux kernel to the USRP. Because
+of this nondeterministic latency, the USRP is ill-suited for any
+timing-constraint communication protocol. Nychis proposed several basic RF
+blocks that if implemented close to the radio, can alleviate this problem.
+However, it makes the system architecture significantly more complex to use as
+this partition must be carefully planned.
+
+MSR's SORA solves the interface issue by using a high bandwidth and
+low-latency PCI-E interface, which achieves 360~ns one-way delay.
+Additionally, a powerful multi-core processor with dedicated processing cores
+allows real-time decoding and fast replies.
+
+In contrast, the \sdr design uses hardware decoding, i.e., demodulation and
+frame filtering are all performed in the FPGA. This drastically reduces
+decoding latency and allows \sdr to quickly respond to incoming packets. In
+\sdr, the ACK frame generation is also implemented in hardware. The ACK
+generation block pre-stores preambles and SFD in a small 11-byte ACK fifo. The
+only missing parts of the ACK are the data sequence number (DSN) and
+corresponding FCS. If the incoming packet passes the CRC check, the hardware
+copies the packet's DSN into the ACK fifo. At the same time, the ACK generator
+block calculates the corresponding FCS and initiates a countdown for precise
+timing. In our IEEE 802.15.4 implementation, the receiver calculates the CRC
+and FCS within 12~$\mu$s, leaving 180~$\mu$s of slack for timing requirement.
+
+\subsection{Radio Enhancements}
+\label{subsec:enhance}
+
+The receiver, transmitter, and hardware acknowledgment implementations are
+everything needed to fully interact with commercially available IEEE 802.15.4
+radios. The following sections describe enhancements to support more advanced
+MAC features that are not always found in currently available radios. This
+highlights the strength of \sdr to test and validate new radio architectures
+that jointly optimize low-power MAC protocols.
+
+\subsubsection{Multiple Address Recognition}
+
+The most important decision a low-power MAC protocol makes is to stay awake or
+go back to sleep if channel activity has been detected. Recent advances in
+low-power MAC protocols showed that receiver initiated protocols have an
+advantage over low-power listening types of protocols as they are more robust
+against interfering noise \cite{2010.amac}. In a receiver initiated MAC
+protocol, nodes that want to receive packets transmit a short probe. Nodes
+that have packets to transmit buffer them locally until they hear a beacon
+from the intended receiver. Once they decoded a beacon, the nodes acknowledge
+it and start transmitting the data in the next packet. A-MAC \cite{2010.amac}
+demonstrated that this can be done in a very efficient way, even if multiple
+nodes try to send data to the same receiver. A-MAC exploits the fact that
+acknowledgment messages will interfere constructively at the receiver. This
+allows the receiver to make the crucial decision to stay awake, even if the
+first data packet of the multiple transmitters collides, at which point a
+back-off mechanism must resolve the conflict.
+
+\begin{figure}[bht]
+\centering
+\includegraphics[width=0.98\columnwidth]{addr_recog_blk}
+\caption{Packet reception and response in \sdr. This diagram shows the
+paritioning of responsibilities between the hardware and software portions of
+\sdr. The decision to support multiple address recognition requires software
+support of the reception/response loop to keep hardware area costs reasonable.
+In this tightly coupled model, the software controller takes advantage of the
+hardware accelerated acknowledgments to meet the stringent latency
+requirements of the 802.15.4 acknowledgment frame.}
+\label{fig:addr_blk}
+\end{figure}
+
+Dutta et al. found in \cite{2010.amac} that a limiting factor of implementing
+A-MAC is the address recognition mechanism of the radio. Hardware
+acknowledgments can only be generated for ones own address. Thus, A-MAC
+reprogrammed it's own address to the intended receiver's beacon address
+(receiver's address with the MSB bit set) waiting for the beacon. This
+introduced several problems and limits the protocol.
+% Should we indicate at all what problems specifically this causes?
+
+We implemented a multiple address recognition mechanism in \sdr. According to
+the IEEE 802.15.4 standard, the address field can be as long as 8 bytes. This
+leads to a design trade-off between implementing this functionality in
+software or hardware by trading latency for FPGA area. We decided to have a
+slight latency increase, and implemented a multiple address recognition
+algorithm on the processor that can detect up to 8 addresses. However, this
+latency increase does not impact the performance of the protocol, as \sdr can
+read out the address faster from the receive fifo than the time it has to wait
+to reply with an ACK. In addition, the multiple address recognition algorithm
+takes advantage of the hardware acknowledgment mechanism preparing an ACK
+while receiving the incoming packet. All the algorithm has to do is send a
+signal to the peripheral letting it know to acknowledge this message.  Figure
+\ref{fig:addr_blk} shows the state diagram of the algorithm and how the
+hardware and software interact with each other. This demonstrates the
+flexibility of the platform, allowing certain protocol functionalities that
+are time critical to be done in hardware only (e.g.  hardware acknowledgments
+generation) while others are implemented in software.
+
+
+\subsubsection{Packet Forwarding}\label{subsec:forward}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.98\columnwidth]{fwd_blk}
+\caption{Detailed packet forwarding state diagram. This is a more detailed
+version of the packet forwarding mechanism shown on Figure \ref{fig:addr_blk}.
+Packets are stored in an incoming FIFO, automatically incrementing the Relay
+Count field and CRC as necessary. When a packet completes, it is automatically
+forwarded if requested and its count is below the relay threashold.}
+\label{fig:fwd_blk}
+\end{figure}
+
+Two basic services in wireless sensor networks are time synchronization and
+flooding. The broadcast storm~\cite{syn:broadcast} is a common problem
+flooding algorithms have to take care of, as retransmission of regular
+broadcasts can amplify itself, and thus overload the network. Ferrari et al.
+proposed {\em Glossy}~\cite{ferrari:efficient}, a fast flooding and time
+synchronization mechanism. Glossy exploits the fact that in IEEE 802.15.4, if
+multiple identical packets arrive within 0.5~$\mu$s at a receiver, they
+collide constructively, and the receiver can successfully decode the message
+with high probability. To achieve this, Glossy nodes forward a received packet
+during a precise time slot and increment a relay counter in the packet.
+Packets with identical relay counts will be transmitted at the same time, at
+all nodes. Therefore, the packets will constructively interfere at the
+receivers. The relay counter limits the maximum hop count of the packet,
+making sure that packets don't live forever within the network. Glossy uses a
+fragile software technique to guaranty software latencies. They have to
+disable all interrupts and add no-operation (NOP) commands to adjust the
+latencies during a Glossy transfer. Although the wireless links are lossy,
+Glossy demonstrates 99.9999\% flooding reliability in a 10 hop deep network.
+
+\"{O}sterlind et al. proposed in \cite{zero_copy} a zero-copy mechanism to
+improve the throughput of multi-hop wireless sensor networks. He observes that
+the critical path of zero-copy is the interface between radio and processor.
+The packet forwarding is done by downloading the packet from the radio to the
+processor, and uploading it back into the radio. Instead of
+downloading and then uploading the same packet, it would be advantageous if
+the radio stored the received packet and were able to immediately retransmit
+it out. This method improves the total throughput to 97\% of the theoretical
+upper bound.
+
+We decided to implement a fast packet forwarding mechanism in the FPGA of the
+\sdr platform. We use the data sequence number (DSN) as a relay counter.
+Figure \ref{fig:fwd_blk} shows the state diagram. During reception of a
+packet, the receiver stores the data in two different fifos, the receiver and
+forwarding fifos. However, the two fifos store slightly different information
+in the DSN and frame control sequence (FCS). The DSN gets automatically
+incremented by 1, and the FCS is updated accordingly.
+
+Using this mechanism, \sdr forwards a packet without interacting with the
+software at all. This removes the critical path identified by \"{O}sterlind
+and allows the retransmit to happen in less than 20~$\mu$s. This forwarding
+also solves the fragile Glossy software implementation as no interrupts have
+to be disabled on the software side, nor do we have to add any NOPs. In
+addition, the forwarding can be precisely controlled, changing the latency to
+any arbitrary, but fixed, delay (e.g. to 192~$\mu$s which would correspond to
+the ACK turn around time). This would allow backward compatibility with some
+existing commercial radios that have forwarding capabilities (e.g. the TI
+CC2520), but have a transmit to receive turn around time of 192~$\mu$s as
+specified by the IEEE 802.15.4 standard.
+
+%- What can we do with this SDR platform?
+%- E.g. IEEE 802.15.4 implementation. Why is that even interesting?
+%  -- standards compliant == compliant with commercial radios
+%  -- we built two radios (one basic FSK, one standards compliant)
+%- Explain \& block diagram of TX and RX chain
+%- Address Recognition
+%- ACK generation
+%- Message Forwarding

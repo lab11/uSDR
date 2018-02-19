@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=RSSI_C\S\ Pin=P12-1
+Removed Pin From Net: NetName=RSSI_SDATA Pin=P12-2
+Removed Pin From Net: NetName=RSSI_SCLK Pin=P12-3
+Added Pin To Net: NetName=RSSI_SDATA Pin=P12-1
+Added Pin To Net: NetName=RSSI_SCLK Pin=P12-2
+Added Pin To Net: NetName=RSSI_C\S\ Pin=P12-3

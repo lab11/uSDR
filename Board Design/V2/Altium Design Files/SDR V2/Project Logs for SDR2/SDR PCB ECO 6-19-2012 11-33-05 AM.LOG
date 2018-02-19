@@ -1,0 +1,76 @@
+Removed Pin From Net: NetName=VCC3.3_DAC Pin=FB5-1
+Removed Pin From Net: NetName=VCC3.3A_DAC Pin=FB5-2
+Removed Pin From Net: NetName=NetC98_2 Pin=FB6-1
+Removed Pin From Net: NetName=VCC2.5 Pin=FB6-2
+Removed Pin From Net: NetName=NetC112_2 Pin=FB8-1
+Removed Pin From Net: NetName=VCC3.3_ETH Pin=FB8-2
+Removed Pin From Net: NetName=USB_VCC Pin=FB10-1
+Removed Pin From Net: NetName=UART_VCC Pin=FB10-2
+Removed Pin From Net: NetName=ADC_RX_Q_N Pin=J3-1
+Removed Pin From Net: NetName=ADC_RX_Q_P Pin=J4-1
+Removed Pin From Net: NetName=NetR10_1 Pin=R10-1
+Removed Pin From Net: NetName=NetC83_2 Pin=R10-2
+Removed Pin From Net: NetName=VCC2.5 Pin=R19-1
+Removed Pin From Net: NetName=TD_P Pin=R19-2
+Removed Pin From Net: NetName=NetR20_1 Pin=R20-1
+Removed Pin From Net: NetName=VCC3.3_ETH Pin=R20-2
+Removed Pin From Net: NetName=SCLK Pin=R81-1
+Removed Pin From Net: NetName=RF_SCLK Pin=R81-2
+Removed Pin From Net: NetName=DGND Pin=R84-1
+Removed Pin From Net: NetName=NetD9_2 Pin=R84-2
+Removed Member From Class: ClassName=U_usb_uart Member=J6
+Removed Member From Class: ClassName=U_Fabric_IO Member=P3
+Removed Member From Class: ClassName=U_MSS_IO Member=P4
+Removed Member From Class: ClassName=U_MSS_IO Member=P5
+Removed Member From Class: ClassName=U_Fabric_IO Member=R45
+Removed Member From Class: ClassName=U_Fabric_IO Member=R46
+Removed Member From Class: ClassName=U_Fabric_IO Member=R47
+Removed Member From Class: ClassName=U_Fabric_IO Member=R48
+Removed Member From Class: ClassName=U_Fabric_IO Member=R49
+Removed Member From Class: ClassName=U_Fabric_IO Member=R50
+Removed Member From Class: ClassName=U_Fabric_IO Member=R51
+Removed Member From Class: ClassName=U_Fabric_IO Member=R52
+Change Component Designator: OldDesignator=FB5 NewDesignator=FB6
+Change Component Designator: OldDesignator=FB6 NewDesignator=FB5
+Change Component Designator: OldDesignator=FB8 NewDesignator=FB10
+Change Component Designator: OldDesignator=FB10 NewDesignator=FB8
+Change Component Designator: OldDesignator=J3 NewDesignator=J4
+Change Component Designator: OldDesignator=J4 NewDesignator=J3
+Added Component: Designator=R10(0402)
+Added Component: Designator=R19(0402)
+Added Component: Designator=R20(0402)
+Added Component: Designator=R81(0402)
+Added Component: Designator=R84(0402)
+Added Pin To Net: NetName=VCC3.3_DAC Pin=FB5-1
+Added Pin To Net: NetName=VCC3.3A_DAC Pin=FB5-2
+Added Pin To Net: NetName=NetC98_2 Pin=FB6-1
+Added Pin To Net: NetName=VCC2.5 Pin=FB6-2
+Added Pin To Net: NetName=NetC112_2 Pin=FB8-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=FB8-2
+Added Pin To Net: NetName=USB_VCC Pin=FB10-1
+Added Pin To Net: NetName=UART_VCC Pin=FB10-2
+Added Pin To Net: NetName=ADC_RX_Q_N Pin=J3-1
+Added Pin To Net: NetName=ADC_RX_Q_P Pin=J4-1
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetC83_2 Pin=R10-2
+Added Pin To Net: NetName=VCC2.5 Pin=R19-1
+Added Pin To Net: NetName=TD_P Pin=R19-2
+Added Pin To Net: NetName=NetR20_1 Pin=R20-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=R20-2
+Added Pin To Net: NetName=SCLK Pin=R81-1
+Added Pin To Net: NetName=RF_SCLK Pin=R81-2
+Added Pin To Net: NetName=DGND Pin=R84-1
+Added Pin To Net: NetName=NetD9_2 Pin=R84-2
+Added Member To Class: ClassName=U_usb_uart Member=Component J17 54819-0572
+Added Member To Class: ClassName=U_Fabric_IO Member=Component P8 Header 8X2
+Added Member To Class: ClassName=U_MSS_IO Member=Component P9 Header 4X2
+Added Member To Class: ClassName=U_MSS_IO Member=Component P10 Header 6X2
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R56 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R57 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R58 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R59 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R60 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R61 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R62 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R63 Res3
+Added Member To Class: ClassName=U_RF Member=Component R81 Res3

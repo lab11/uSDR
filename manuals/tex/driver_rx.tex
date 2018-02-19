@@ -1,0 +1,59 @@
+\subsection{rx\_packet}
+This driver is a "reverse" operation of tx\_packet. The driver extracts the parameters in header
+from a received packet. The following source code is the {\bf rx\_packet\_str} structure. It's
+very similar to tx\_packet\_str. The major diferences are the source address information,
+rssi value and crc result.
+
+\begin{lstlisting}[caption=RX Packet Structure]
+struct rx_packet_str{
+	uint8_t frame_type;
+	uint8_t security_en;
+	uint8_t frame_pending;
+	uint8_t ack_req;
+	uint8_t intra_pan;
+	uint8_t dest_addr_mode;
+	uint8_t dsn;
+	uint16_t dest_pan_ID;
+	uint32_t dest_addr_LSB, dest_addr_MSB;
+
+	uint8_t packet_length;
+	uint32_t payload_idx;
+
+	uint8_t src_addr_mode;
+	uint16_t src_pan_ID;
+	uint32_t src_addr_LSB, src_addr_MSB;
+	uint8_t rssi;
+	uint8_t crc;
+};
+\end{lstlisting}
+
+\begin{enumerate}
+	\item void read\_fifo(uint32\_t* rdata);
+	\item inline uint8\_t isFifoEmpty();
+	\item uint8\_t rx\_packet\_create(struct rx\_packet\_str* rp, uint32\_t* rx\_data);
+\end{enumerate}
+
+\subsubsection{void read\_fifo(uint32\_t* rdata)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: A pointer where stores the unloaded data.\\
+Return value: None\\
+This function unload {\bf one packet}~\footnote{Only the oldest packet in RX fifo.} from RX fifo. 
+The unloaded data will be stored in {\bf rdata} array. The size of rdata cannot be too small to
+store a single packet.
+
+\subsubsection{inline uint8\_t isFifoEmpty()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: Fifo empty\\
+This function checks whether the RX fifo is empty or not. If it's empty, function returns 1 and
+vice versa.
+
+\subsubsection{uint8\_t rx\_packet\_create(struct rx\_packet\_str* rp, uint32\_t* rx\_data)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: rx\_packet\_str pointer, a pointer where stores the unloaded data.\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+This function extracts and stores all the data member in rx\_packet\_str from a given rx\_data
+pointer. 

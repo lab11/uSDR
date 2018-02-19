@@ -1,0 +1,144 @@
+\subsection{max2831}
+The following functions are provided in the max2831 driver. Although the MAX2831 internal registers'
+cannot be read through SPI interface, the driver maintains the registers' values. User can retrieves
+these value through a provided function.
+
+\begin{enumerate}
+	\item void initialize\_chip();
+	\item void setToDefaultRX(int register\_number);
+	\item void setRegisterValueRX(int register\_number,uint32\_t register\_value);
+	\item uint32\_t getRegisterValueRX(int reg\_number);
+	\item uint8\_t setLNAGain(uint8\_t LNAGain);
+	\item uint8\_t setRXBaseBandVGAGain(uint8\_t VGAGain);
+	\item uint8\_t setTXBaseBandVGAGain(uint8\_t VGAGain);
+	\item void enRXParVGAGainCtl();
+	\item uint8\_t setFreqDivider(int freq);
+	\item int getFreqDivider();
+	\item uint8\_t setBaseBandLowPassFilterMode (uint8\_t LPFMode);
+	\item uint8\_t setTXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust);
+	\item uint8\_t setRXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust);
+\end{enumerate}
+
+\subsubsection{void initialize\_chip()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: None\\
+This function resets all registers to the default value.
+
+\subsubsection{void setToDefaultRX(int register\_number)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Register number. A valid register number is from 0 to 15.\\
+Return value: None\\
+This function sets the specified register to its default value.
+
+\subsubsection{void setRegisterValueRX(int register\_number,uint32\_t register\_value)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Register number, Register value. A valid register number is from 0 to 15.\\
+Return value: None\\
+This function set the specified register to specified value.
+
+\subsubsection{uint32\_t getRegisterValueRX(int reg\_number)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Register number. A valid register number is from 0 to 15.\\
+Return value: Register value\\
+This function returns the specified register's value.
+
+\subsubsection{uint8\_t setLNAGain(uint8\_t LNAGain)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: LNA gain. A valid LNA gain is from 0 to 3.\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+This function sets the LNA gains in RX loop and return success/fail.
+\begin{table}
+\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		{\bf LNA Gain} & {\bf Mode}\\ \hline
+		0 or 1 & Low gain\\ \hline
+		2 & Medium gain\\ \hline
+		3 & High gain\\ \hline
+	\end{tabular}
+	\caption{LNA gain mode}
+\end{table}
+
+\subsubsection{uint8\_t setRXBaseBandVGAGain(uint8\_t VGAGain)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: VGA gain. A valid VGA gain is from 0 (min) to 31 (max). Step size = 2~dB\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+This function sets the {\bf RX} baseband gain.
+
+\subsubsection{uint8\_t setTXBaseBandVGAGain(uint8\_t VGAGain)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: VGA gain. A valid VGA gain is from 0 (min) to 63 (max). Step size = 2~dB\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+This function set the {\bf TX} baseband gain.
+
+\subsubsection{void enRXParVGAGainCtl()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: None\\
+This function enables the parallel control over the RX gain. It's necessary for AGC and Only 
+valid on \sdr v2.
+
+\subsubsection{uint8\_t setFreqDivider(int freq)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: RF Frequency\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+This function sets the RF frequency of MAX2831.
+
+\subsubsection{int getFreqDivider()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: RF frequency
+This function returns the RF frequency of MAX2831.
+
+\begin{comment}
+\subsubsection{uint8\_t setBaseBandLowPassFilterMode (uint8\_t LPFMode)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Low Pass Filter Mode\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+\end{comment}
+
+\subsubsection{uint8\_t setTXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Low Pass Filter Mode, Adjustment\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+See table~\ref{tab:lpf} for more details.
+
+\subsubsection{uint8\_t setRXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Low Pass Filter Mode, Adjustment\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+See table~\ref{tab:lpf} for more details.
+
+\begin{table}[h]
+\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	\multirow{3}{*}{LPF Mode} &
+	\multicolumn{11}{c|}{LPF Fine Adjustment}\\ \cline{2-12}
+	& \multicolumn{5}{c|}{RX} &
+	\multicolumn{6}{c|}{TX} \\ \cline{2-12}
+			& {\bf 0} & {\bf 1} & {\bf 2} & {\bf 3} & {\bf 4} & {\bf 0} & {\bf 1} & {\bf 2} & {\bf 3} & {\bf 4} & {\bf 5}\\ \hline
+	{\bf 0} & \multirow{4}{*}{90\%} & \multirow{4}{*}{95\%} & 7.5~MHz & \multirow{4}{*}{105\%} & \multirow{4}{*}{110\%} 
+			& \multirow{4}{*}{90\%} & \multirow{4}{*}{95\%} & 8~MHz   & \multirow{4}{*}{105\%} & \multirow{4}{*}{110\%} & \multirow{4}{*}{115\%}\\ \cline{1-1}\cline{4-4}\cline{9-9}
+	{\bf 1} &  &  & 8.5~MHz &  &  &  &  & 11~MHz	&  &  & \\ \cline{1-1}\cline{4-4}\cline{9-9}
+	{\bf 2} &  &  & 15~MHz 	&  &  &  &  & 16.5~MHz	&  &  & \\ \cline{1-1}\cline{4-4}\cline{9-9}
+	{\bf 3} &  &  & 18~MHz 	&  &  &  &  & 22.5~MHz	&  &  & \\ \hline
+	\end{tabular}
+	\caption{LPF adjustment details}
+	\label{tab:lpf}
+\end{table}
+

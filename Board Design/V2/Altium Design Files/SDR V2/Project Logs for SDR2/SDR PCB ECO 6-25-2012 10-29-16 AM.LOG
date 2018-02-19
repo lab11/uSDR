@@ -1,0 +1,13 @@
+Added Component: Designator=P10(2x6 header, right angle)
+Added Pin To Net: NetName=TCK Pin=P10-2
+Added Pin To Net: NetName=TMS Pin=P10-3
+Added Pin To Net: NetName=DGND Pin=P10-4
+Added Pin To Net: NetName=DGND Pin=P10-5
+Added Pin To Net: NetName=TDI Pin=P10-6
+Added Pin To Net: NetName=VCC3.3 Pin=P10-7
+Added Pin To Net: NetName=JTAG_TRSTB Pin=P10-8
+Added Pin To Net: NetName=TDO Pin=P10-9
+Added Pin To Net: NetName=VCC3.3 Pin=P10-10
+Added Pin To Net: NetName=DGND Pin=P10-11
+Added Pin To Net: NetName=DGND Pin=P10-12
+Added Member To Class: ClassName=U_MSS_IO Member=Component P10 2 x 6 header

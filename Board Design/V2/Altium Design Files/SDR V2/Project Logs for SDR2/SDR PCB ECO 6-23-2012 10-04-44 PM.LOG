@@ -1,0 +1,10 @@
+Added Component: Designator=P12(1x3 header)
+Added Component: Designator=P13(1x3 header)
+Added Pin To Net: NetName=RSSI_SDATA Pin=P12-1
+Added Pin To Net: NetName=RSSI_SCLK Pin=P12-2
+Added Pin To Net: NetName=RSSI_C\S\ Pin=P12-3
+Added Pin To Net: NetName=RF_DIN Pin=P13-1
+Added Pin To Net: NetName=RF_SCLK Pin=P13-2
+Added Pin To Net: NetName=RF_C\S\ Pin=P13-3
+Added Member To Class: ClassName=U_RF Member=Component P12 1 x 3 header
+Added Member To Class: ClassName=U_RF Member=Component P13 1 x 3 header

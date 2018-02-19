@@ -1,0 +1,268 @@
+make -C ./tex build/paper.pdf
+make[1]: Entering directory `/home/samkuo/Projects/SDR/notes/tex'
+make -C ../figs
+make[2]: Entering directory `/home/samkuo/Projects/SDR/notes/figs'
+if [ -e envelop_modeling_sim/Makefile ]; then make -C envelop_modeling_sim; fi
+if [ -e frequency_compensate/Makefile ]; then make -C frequency_compensate; fi
+if [ -e envelop_modeling/Makefile ]; then make -C envelop_modeling; fi
+make[2]: Leaving directory `/home/samkuo/Projects/SDR/notes/figs'
+make -C ../images
+make[2]: Entering directory `/home/samkuo/Projects/SDR/notes/images'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/samkuo/Projects/SDR/notes/images'
+pdflatex -output-directory build paper.tex
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian)
+entering extended mode
+(./paper.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty)
+(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+(/etc/texmf/tex/latex/config/color.cfg)
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def))
+(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/endnotes.sty)
+(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty)
+(/etc/texmf/tex/latex/config/graphics.cfg)))
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty))
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty))
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty))
+Implicit mode ON; LaTeX internals redefined
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty))
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg))
+(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty)
+(/usr/share/texmf-texlive/tex/latex/tools/xspace.sty)
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty))
+(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/threeparttable.sty)
+(build/paper.aux) (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+*geometry auto-detecting driver*
+*geometry detected driver: pdftex*
+
+Package hyperref Warning:  draft mode on.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd) [1{/var/lib/texmf/fonts/m
+ap/pdftex/updmap/pdftex.map}] (./demux.tex
+Chapter 1.
+) (./freq_diff.tex [1]
+Chapter 2.
+
+Package caption Warning: \label before \caption on input line 40.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:demux' on page 2 undefined on input line 97.
+
+
+<../figs/frequency_compensate/freq_compensate.pdf, id=16, 289.08pt x 180.675pt>
+<use ../figs/frequency_compensate/freq_compensate.pdf> [2] [3 <../figs/frequenc
+y_compensate/freq_compensate.pdf>] [4] [5]
+<../figs/envelop_modeling/per_deltaf.pdf, id=42, 289.08pt x 180.675pt>
+<use ../figs/envelop_modeling/per_deltaf.pdf>
+<../figs/envelop_modeling_sim/per_deltaf_sim.pdf, id=43, 289.08pt x 180.675pt>
+<use ../figs/envelop_modeling_sim/per_deltaf_sim.pdf> [6]
+<../figs/envelop_modeling_sim/IQ.pdf, id=48, 903.375pt x 252.945pt>
+<use ../figs/envelop_modeling_sim/IQ.pdf>) [7 <../figs/envelop_modeling/per_del
+taf.pdf> <../figs/envelop_modeling_sim/per_deltaf_sim.pdf> <../figs/envelop_mod
+eling_sim/IQ.pdf>] (build/paper.bbl) (build/paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on build/paper.pdf (8 pages, 273949 bytes).
+Transcript written on build/paper.log.
+pdflatex -output-directory build paper.tex 
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian)
+entering extended mode
+(./paper.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty)
+(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+(/etc/texmf/tex/latex/config/color.cfg)
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def))
+(/usr/share/texmf-texlive/tex/latex/colortbl/colortbl.sty)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/endnotes.sty)
+(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty)
+(/etc/texmf/tex/latex/config/graphics.cfg)))
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty))
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty))
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty))
+Implicit mode ON; LaTeX internals redefined
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty))
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty)
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg))
+(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty)
+(/usr/share/texmf-texlive/tex/latex/tools/xspace.sty)
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty))
+(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+Excluding comment 'comment')
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/threeparttable.sty)
+(build/paper.aux) (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+*geometry auto-detecting driver*
+*geometry detected driver: pdftex*
+
+Package hyperref Warning:  draft mode on.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty))
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd) [1{/var/lib/texmf/fonts/m
+ap/pdftex/updmap/pdftex.map}] (./demux.tex
+Chapter 1.
+) (./freq_diff.tex [1]
+Chapter 2.
+
+Package caption Warning: \label before \caption on input line 40.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:demux' on page 2 undefined on input line 97.
+
+
+<../figs/frequency_compensate/freq_compensate.pdf, id=16, 289.08pt x 180.675pt>
+<use ../figs/frequency_compensate/freq_compensate.pdf> [2] [3 <../figs/frequenc
+y_compensate/freq_compensate.pdf>] [4] [5]
+<../figs/envelop_modeling/per_deltaf.pdf, id=42, 289.08pt x 180.675pt>
+<use ../figs/envelop_modeling/per_deltaf.pdf>
+<../figs/envelop_modeling_sim/per_deltaf_sim.pdf, id=43, 289.08pt x 180.675pt>
+<use ../figs/envelop_modeling_sim/per_deltaf_sim.pdf> [6]
+<../figs/envelop_modeling_sim/IQ.pdf, id=48, 903.375pt x 252.945pt>
+<use ../figs/envelop_modeling_sim/IQ.pdf>) [7 <../figs/envelop_modeling/per_del
+taf.pdf> <../figs/envelop_modeling_sim/per_deltaf_sim.pdf> <../figs/envelop_mod
+eling_sim/IQ.pdf>] (build/paper.bbl) (build/paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on build/paper.pdf (8 pages, 273949 bytes).
+Transcript written on build/paper.log.
+export BIBINPUTS=../ && cd build && bibtex paper
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: paper.aux
+The style file: abbrv.bst
+I found no \citation commands---while reading file paper.aux
+Database file #1: bib.bib
+(There was 1 error message)
+make[1]: Leaving directory `/home/samkuo/Projects/SDR/notes/tex'

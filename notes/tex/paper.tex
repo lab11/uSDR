@@ -1,0 +1,106 @@
+% Change to use the correct class file for your paper.
+\documentclass[10pt]{report}
+%\nocopyrightspacetrue
+
+%\pagenumbering{arabic}
+
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{endnotes}
+%\usepackage[cm]{fullpage}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{graphicx}    % For importing graphics
+\usepackage[draft]{hyperref}    % Creates hyperlinks from ref/cite 
+%\usepackage{hyperref}    % Creates hyperlinks from ref/cite 
+\usepackage{multirow}
+\hypersetup{pdfstartview=FitH}
+%\usepackage{subfig}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{url}         %
+\usepackage{xspace}
+%\usepackage[bf,skip=5pt]{caption}
+\usepackage[skip=5pt]{caption}
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{wrapfig}
+
+%\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{threeparttable}
+
+\DeclareCaptionType{copyrightbox}
+
+\newlength\SUBSIZE
+
+\renewcommand{\arraystretch}{1.2} % Space out rows in tables
+
+\newcommand{\projname}{Super Super Sweet (S$^3$) Project Name\xspace}
+\newcommand{\ra}{$\rightarrow$\xspace}
+
+\setlength\paperheight {11in}
+\setlength\paperwidth {8.5in}
+
+% Set the graphics path
+\graphicspath{{../figs/}{../images/build/}}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+
+% No space between bibliography items:
+\let\oldthebibliography=\thebibliography
+  \let\endoldthebibliography=\endthebibliography
+  \renewenvironment{thebibliography}[1]{%
+    \begin{oldthebibliography}{#1}%
+      \setlength{\parskip}{0ex}%
+      \setlength{\itemsep}{0ex}%
+  }%
+  {%
+    \end{oldthebibliography}%
+  }
+\setlength{\parindent}{5mm}
+
+\newcommand{\sdr}{$\mu$SDR\xspace}
+\newcommand{\realtilde}{\raise.17ex\hbox{$\scriptstyle\sim$}}
+
+\begin{document}
+
+%\CopyrightYear{} 
+%\crdata{}
+\clubpenalty=10000 
+\widowpenalty = 10000
+
+%\title{A Compact, Inexpensive, and Battery-Powered\\
+%  Software-Defined Radio Platform}
+%\title{Reconfiguring the Software-Defined Radio\\to Improve Power,
+%  Price, and Proportions}
+\title{SDR notes}
+
+\author{Ye-sheng Kuo}
+\date{May 2012}
+\maketitle
+
+\input{demux}
+\input{freq_diff}
+
+\vfill\eject
+
+% page limit          % 14.0 pg
+
+% abstract            % 0.5 pg
+\vfill\eject
+
+%\theendnotes
+
+{%\footnotesize
+\raggedright
+\bibliographystyle{abbrv}
+\bibliography{bib}
+}
+
+\end{document}
+

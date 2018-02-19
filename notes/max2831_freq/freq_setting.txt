@@ -1,0 +1,24 @@
+Reference frequency divider ratio to PLL
+--
+f_comp = f_crystal / {1 or 2}
+Register 5 (0101) D5
+
+f_RF / f_comp = XXX.YYY
+
+XXX = D7:D0 of Register 3 (0011)
+YYY * (2^20 - 1) = D13:D0 of Register 4 + D13:D8 of register 3
+
+ex: Radio = 2, f_RF = 2405 MHz,
+f_comp = 40/2 = 20MHz
+f_RF/f_comp = 2405/20 = 120.25
+120 = 0111_1000 (D7:D0 of Register 3)
+0.25*(2^20 - 1) \approx 0.25*(2^20)
+D13:D0 of Register 4 = 0.25*(2^14) = 2^12 = 4096
+D13:D8 -> neglect. (Default value = 0)
+
+Each bit in D13:D0 represent 1.2207KHz in f_RF
+1 / 2^14 * 20e6 = 1.2207KHz
+
+in 802.15.4 standard, channels are separated by 5MHz. Namely, 5/20 = 0.25
+each channel equal to 0.25 * 2^14 = 4096 in D13:D0 of register 4
+ex: 2405 = 0.25(4086), 2410 = 0.5(8192), 2415 = 0.75(12288)

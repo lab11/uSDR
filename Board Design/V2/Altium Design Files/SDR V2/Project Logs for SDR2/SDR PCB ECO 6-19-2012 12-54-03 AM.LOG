@@ -1,0 +1,170 @@
+Removed Pin From Net: NetName=NetC98_2 Pin=FB6-1
+Removed Pin From Net: NetName=VCC2.5 Pin=FB6-2
+Removed Pin From Net: NetName=USB_VCC Pin=FB10-1
+Removed Pin From Net: NetName=UART_VCC Pin=FB10-2
+Removed Pin From Net: NetName=USB_VCC Pin=J17-1
+Removed Pin From Net: NetName=USB_D_N Pin=J17-2
+Removed Pin From Net: NetName=USB_D_P Pin=J17-3
+Removed Pin From Net: NetName=DGND Pin=J17-5
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=DGND Pin=J17-6
+Removed Pin From Net: NetName=USER_IO0 Pin=P8-1
+Removed Pin From Net: NetName=USER_IO1 Pin=P8-2
+Removed Pin From Net: NetName=USER_IO2 Pin=P8-3
+Removed Pin From Net: NetName=USER_IO3 Pin=P8-4
+Removed Pin From Net: NetName=USER_IO4 Pin=P8-5
+Removed Pin From Net: NetName=USER_IO5 Pin=P8-6
+Removed Pin From Net: NetName=USER_IO6 Pin=P8-7
+Removed Pin From Net: NetName=USER_IO7 Pin=P8-8
+Removed Pin From Net: NetName=USER_IO8 Pin=P8-9
+Removed Pin From Net: NetName=USER_IO9 Pin=P8-10
+Removed Pin From Net: NetName=USER_IO10 Pin=P8-11
+Removed Pin From Net: NetName=USER_IO11 Pin=P8-12
+Removed Pin From Net: NetName=USER_IO12 Pin=P8-13
+Removed Pin From Net: NetName=USER_IO13 Pin=P8-14
+Removed Pin From Net: NetName=USER_IO14 Pin=P8-15
+Removed Pin From Net: NetName=USER_IO15 Pin=P8-16
+Removed Pin From Net: NetName=MSS_USER_IO0 Pin=P9-1
+Removed Pin From Net: NetName=MSS_USER_IO1 Pin=P9-2
+Removed Pin From Net: NetName=MSS_USER_IO2 Pin=P9-3
+Removed Pin From Net: NetName=MSS_USER_IO3 Pin=P9-4
+Removed Pin From Net: NetName=MSS_USER_IO4 Pin=P9-5
+Removed Pin From Net: NetName=MSS_USER_IO5 Pin=P9-6
+Removed Pin From Net: NetName=MSS_USER_IO6 Pin=P9-7
+Removed Pin From Net: NetName=MSS_USER_IO7 Pin=P9-8
+Removed Pin From Net: NetName=TCK Pin=P10-2
+Removed Pin From Net: NetName=TMS Pin=P10-3
+Removed Pin From Net: NetName=DGND Pin=P10-4
+Removed Pin From Net: NetName=DGND Pin=P10-5
+Removed Pin From Net: NetName=TDI Pin=P10-6
+Removed Pin From Net: NetName=VCC3.3 Pin=P10-7
+Removed Pin From Net: NetName=JTAG_TRSTB Pin=P10-8
+Removed Pin From Net: NetName=TDO Pin=P10-9
+Removed Pin From Net: NetName=VCC3.3 Pin=P10-10
+Removed Pin From Net: NetName=DGND Pin=P10-11
+Removed Pin From Net: NetName=DGND Pin=P10-12
+Removed Pin From Net: NetName=NetR10_1 Pin=R10-1
+Removed Pin From Net: NetName=NetC83_2 Pin=R10-2
+Removed Pin From Net: NetName=VCC2.5 Pin=R19-1
+Removed Pin From Net: NetName=TD_P Pin=R19-2
+Removed Pin From Net: NetName=NetR20_1 Pin=R20-1
+Removed Pin From Net: NetName=VCC3.3_ETH Pin=R20-2
+Removed Pin From Net: NetName=NetR56_1 Pin=R56-1
+Removed Pin From Net: NetName=VCC3.3 Pin=R56-2
+Removed Pin From Net: NetName=USER_LED7 Pin=R57-1
+Removed Pin From Net: NetName=NetD8_2 Pin=R57-2
+Removed Pin From Net: NetName=USER_LED6 Pin=R58-1
+Removed Pin From Net: NetName=NetD7_2 Pin=R58-2
+Removed Pin From Net: NetName=USER_LED5 Pin=R59-1
+Removed Pin From Net: NetName=NetD6_2 Pin=R59-2
+Removed Pin From Net: NetName=USER_LED4 Pin=R60-1
+Removed Pin From Net: NetName=NetD5_2 Pin=R60-2
+Removed Pin From Net: NetName=USER_LED3 Pin=R61-1
+Removed Pin From Net: NetName=NetD4_2 Pin=R61-2
+Removed Pin From Net: NetName=USER_LED2 Pin=R62-1
+Removed Pin From Net: NetName=NetD3_2 Pin=R62-2
+Removed Pin From Net: NetName=USER_LED1 Pin=R63-1
+Removed Pin From Net: NetName=NetD2_2 Pin=R63-2
+Removed Pin From Net: NetName=SCLK Pin=R81-1
+Removed Pin From Net: NetName=RF_SCLK Pin=R81-2
+Removed Pin From Net: NetName=DGND Pin=R84-1
+Removed Pin From Net: NetName=NetD9_2 Pin=R84-2
+Added Component: Designator=FB6(1608[0603])
+Added Component: Designator=FB9(1608[0603])
+Added Component: Designator=FB10(1608[0603])
+Added Component: Designator=J17(Mini USB)
+Added Component: Designator=P8(HDR2X8)
+Added Component: Designator=P9(HDR2X4)
+Added Component: Designator=P10(HDR2X6)
+Added Component: Designator=R10(0402)
+Added Component: Designator=R19(0402)
+Added Component: Designator=R20(0402)
+Added Component: Designator=R56(0402)
+Added Component: Designator=R57(0402)
+Added Component: Designator=R58(0402)
+Added Component: Designator=R59(0402)
+Added Component: Designator=R60(0402)
+Added Component: Designator=R61(0402)
+Added Component: Designator=R62(0402)
+Added Component: Designator=R63(0402)
+Added Component: Designator=R81(0402)
+Added Component: Designator=R84(0402)
+Added Pin To Net: NetName=NetC98_2 Pin=FB6-1
+Added Pin To Net: NetName=VCC2.5 Pin=FB6-2
+Added Pin To Net: NetName=USB_VCC Pin=FB9-1
+Added Pin To Net: NetName=VCC5_USB Pin=FB9-2
+Added Pin To Net: NetName=USB_VCC Pin=FB10-1
+Added Pin To Net: NetName=UART_VCC Pin=FB10-2
+Added Pin To Net: NetName=USB_VCC Pin=J17-1
+Added Pin To Net: NetName=USB_D_N Pin=J17-2
+Added Pin To Net: NetName=USB_D_P Pin=J17-3
+Added Pin To Net: NetName=DGND Pin=J17-5
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=DGND Pin=J17-6
+Added Pin To Net: NetName=USER_IO0 Pin=P8-1
+Added Pin To Net: NetName=USER_IO1 Pin=P8-2
+Added Pin To Net: NetName=USER_IO2 Pin=P8-3
+Added Pin To Net: NetName=USER_IO3 Pin=P8-4
+Added Pin To Net: NetName=USER_IO4 Pin=P8-5
+Added Pin To Net: NetName=USER_IO5 Pin=P8-6
+Added Pin To Net: NetName=USER_IO6 Pin=P8-7
+Added Pin To Net: NetName=USER_IO7 Pin=P8-8
+Added Pin To Net: NetName=USER_IO8 Pin=P8-9
+Added Pin To Net: NetName=USER_IO9 Pin=P8-10
+Added Pin To Net: NetName=USER_IO10 Pin=P8-11
+Added Pin To Net: NetName=USER_IO11 Pin=P8-12
+Added Pin To Net: NetName=USER_IO12 Pin=P8-13
+Added Pin To Net: NetName=USER_IO13 Pin=P8-14
+Added Pin To Net: NetName=USER_IO14 Pin=P8-15
+Added Pin To Net: NetName=USER_IO15 Pin=P8-16
+Added Pin To Net: NetName=MSS_USER_IO0 Pin=P9-1
+Added Pin To Net: NetName=MSS_USER_IO1 Pin=P9-2
+Added Pin To Net: NetName=MSS_USER_IO2 Pin=P9-3
+Added Pin To Net: NetName=MSS_USER_IO3 Pin=P9-4
+Added Pin To Net: NetName=MSS_USER_IO4 Pin=P9-5
+Added Pin To Net: NetName=MSS_USER_IO5 Pin=P9-6
+Added Pin To Net: NetName=MSS_USER_IO6 Pin=P9-7
+Added Pin To Net: NetName=MSS_USER_IO7 Pin=P9-8
+Added Pin To Net: NetName=TCK Pin=P10-2
+Added Pin To Net: NetName=TMS Pin=P10-3
+Added Pin To Net: NetName=DGND Pin=P10-4
+Added Pin To Net: NetName=DGND Pin=P10-5
+Added Pin To Net: NetName=TDI Pin=P10-6
+Added Pin To Net: NetName=VCC3.3 Pin=P10-7
+Added Pin To Net: NetName=JTAG_TRSTB Pin=P10-8
+Added Pin To Net: NetName=TDO Pin=P10-9
+Added Pin To Net: NetName=VCC3.3 Pin=P10-10
+Added Pin To Net: NetName=DGND Pin=P10-11
+Added Pin To Net: NetName=DGND Pin=P10-12
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetC83_2 Pin=R10-2
+Added Pin To Net: NetName=VCC2.5 Pin=R19-1
+Added Pin To Net: NetName=TD_P Pin=R19-2
+Added Pin To Net: NetName=NetR20_1 Pin=R20-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=R20-2
+Added Pin To Net: NetName=NetR56_1 Pin=R56-1
+Added Pin To Net: NetName=VCC3.3 Pin=R56-2
+Added Pin To Net: NetName=USER_LED7 Pin=R57-1
+Added Pin To Net: NetName=NetD8_2 Pin=R57-2
+Added Pin To Net: NetName=USER_LED6 Pin=R58-1
+Added Pin To Net: NetName=NetD7_2 Pin=R58-2
+Added Pin To Net: NetName=USER_LED5 Pin=R59-1
+Added Pin To Net: NetName=NetD6_2 Pin=R59-2
+Added Pin To Net: NetName=USER_LED4 Pin=R60-1
+Added Pin To Net: NetName=NetD5_2 Pin=R60-2
+Added Pin To Net: NetName=USER_LED3 Pin=R61-1
+Added Pin To Net: NetName=NetD4_2 Pin=R61-2
+Added Pin To Net: NetName=USER_LED2 Pin=R62-1
+Added Pin To Net: NetName=NetD3_2 Pin=R62-2
+Added Pin To Net: NetName=USER_LED1 Pin=R63-1
+Added Pin To Net: NetName=NetD2_2 Pin=R63-2
+Added Pin To Net: NetName=SCLK Pin=R81-1
+Added Pin To Net: NetName=RF_SCLK Pin=R81-2
+Added Pin To Net: NetName=DGND Pin=R84-1
+Added Pin To Net: NetName=NetD9_2 Pin=R84-2
+Added Member To Class: ClassName=U_PWR_Gen Member=Component FB9 BLM18PG300SN1D
+Added Member To Class: ClassName=U_RF Member=Component R81 Res3

@@ -1,0 +1,67 @@
+Removed Pin From Net: NetName=VCC3.3_SRAM Pin=P1-1
+Removed Pin From Net: NetName=VCC3.3 Pin=P1-2
+Removed Pin From Net: NetName=VCC1.8_SRAM Pin=P2-1
+Removed Pin From Net: NetName=VCC1.8 Pin=P2-2
+Removed Pin From Net: NetName=VCC3.3_FLASH Pin=P3-1
+Removed Pin From Net: NetName=VCC3.3 Pin=P3-2
+Change Component DesignItemId : Designator=P1 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P3 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P4 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P5 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P6 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P7 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P11 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P14 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P15 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P17 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P18 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P19 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P20 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component DesignItemId : Designator=P21 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P3 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P4 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P5 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P6 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P7 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P11 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P14 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P15 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P17 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P18 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P19 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P20 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Footprint: Designator=P21 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Comment : Designator=P1 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P2 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P3 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P4 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P5 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P6 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P7 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P11 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P14 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P15 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P17 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P18 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P19 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P20 Old Comment=Header 2 New Comment=1 x 2 header
+Change Component Comment : Designator=P21 Old Comment=Header 2 New Comment=1 x 2 header
+Added Component: Designator=P12(1x3 header)
+Added Component: Designator=P13(1x3 header)
+Added Pin To Net: NetName=VCC3.3 Pin=P1-1
+Added Pin To Net: NetName=VCC3.3_SRAM Pin=P1-2
+Added Pin To Net: NetName=VCC1.8 Pin=P2-1
+Added Pin To Net: NetName=VCC1.8_SRAM Pin=P2-2
+Added Pin To Net: NetName=VCC3.3 Pin=P3-1
+Added Pin To Net: NetName=VCC3.3_FLASH Pin=P3-2
+Added Pin To Net: NetName=RSSI_SDATA Pin=P12-1
+Added Pin To Net: NetName=RSSI_SCLK Pin=P12-2
+Added Pin To Net: NetName=RSSI_C\S\ Pin=P12-3
+Added Pin To Net: NetName=RF_DIN Pin=P13-1
+Added Pin To Net: NetName=RF_SCLK Pin=P13-2
+Added Pin To Net: NetName=RF_C\S\ Pin=P13-3
+Added Member To Class: ClassName=U_RF Member=Component P12 1 x 3 header
+Added Member To Class: ClassName=U_RF Member=Component P13 1 x 3 header

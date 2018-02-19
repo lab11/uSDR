@@ -1,0 +1,114 @@
+\clearpage
+\section{Example Codes (LED counter)}
+
+\lstset{basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[caption=Initialize system]
+	RF_shdn(0);
+	init_system();
+	res = setTXBaseBandVGAGain(10);
+	uint32_t frequency = 2405;
+	res = setFreqDivider(frequency);
+	rx_agc_en(3);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Create object]
+
+	struct radio* radio0;
+	radio0 = malloc(sizeof(struct radio));
+	radio0->multiple_addr_en = 0;		
+
+	struct tx_packet_str* led_pkt;
+	led_pkt = malloc(sizeof(struct tx_packet_str));
+	// link to radio0
+	led_pkt->rp = radio0;				
+
+	struct rx_packet_str* received_packet;
+	received_packet = malloc(sizeof(struct rx_packet_str));
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Set packet \& Radio]
+	uint32_t* led_data_ptr;
+	uint32_t data_size = 4;
+	led_data_ptr = malloc(sizeof(uint32_t)*data_size);
+	led_pkt->data_length = data_size;
+	led_pkt->data_ptr = led_data_ptr;
+
+	// set led packet
+	set_frame_type(led_pkt, 1);
+	set_security(led_pkt, 0);
+	set_pan_id_comp(led_pkt, 1);
+	set_dest_addr_mode(led_pkt, 2);
+	set_DSN(led_pkt, 0);
+	set_dest_pan(led_pkt, 0x22);
+	set_frame_pending(led_pkt, 0);
+
+	set_dest_addr(led_pkt, 0, 0xffff);
+	set_ack(led_pkt, 0);
+
+	// set radio
+	set_src_pan(radio0, 0x22);
+	set_src_addr_mode(radio0, 2);
+	set_src_addr(radio0, 0, 0x05);
+
+	// set radio packet data
+	led_data_ptr[0] = 0x3f;
+	led_data_ptr[1] = 0x06;
+	led_data_ptr[2] = 0x00;
+	led_data_ptr[3] = 0x00;
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Periodic transmit]
+	if (TIM1_int & PDMA_int){
+		tx_fire();
+		PDMA_int = 0;
+		TIM1_int = 0;
+	}
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Load packet]
+	if (tx_complete_int==1){
+		tx_complete_int = 0;
+		tx_counter++;
+		led_data_ptr[2] = (tx_counter & 0xff00)>>8;
+		led_data_ptr[3] = (tx_counter & 0xff);
+		set_DSN(led_pkt, led_data_ptr[3]);
+		data_trans (led_pkt);
+	}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Unload packet]
+	if (rx_pkt_done_int==1){
+		rx_pkt_done_int = 0;
+		read_fifo(rdata);
+
+		res = rx_packet_create(received_packet, rdata);
+
+		uint8_t crc_correct, ack_req;
+		crc_correct = received_packet->crc;
+		ack_req = received_packet->ack_req;
+		if (crc_correct){
+			uint32_t* rx_data = rdata + received_packet->payload_idx;
+
+			uint8_t address_match = dest_addr_filter(received_packet, radio0);
+
+			// address doesn't match but requests ACK
+			// flush ack
+			if ( (!address_match) & ack_req){
+				ack_flush();
+			}
+
+			// broadcast 
+			if (address_match==3){
+			// led packet signature, 0x3f, 0x06
+				if ((rx_data[0]==0x3f)&&(rx_data[1]==0x06)){
+					set_led(rx_data[3]);
+				}
+			}
+
+		}
+
+	}
+\end{lstlisting}

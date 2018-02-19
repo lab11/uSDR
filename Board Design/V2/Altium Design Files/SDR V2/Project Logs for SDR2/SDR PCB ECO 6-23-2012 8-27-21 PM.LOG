@@ -1,0 +1,49 @@
+Removed Member From Class: ClassName=U_Analog Member=C67
+Removed Member From Class: ClassName=U_Ethernet Member=C87
+Removed Member From Class: ClassName=U_Ethernet Member=C89
+Removed Member From Class: ClassName=U_MSS_IO Member=C109
+Removed Member From Class: ClassName=U_MSS_IO Member=C110
+Removed Member From Class: ClassName=U_RF Member=C114
+Removed Member From Class: ClassName=U_RF_2 Member=C179
+Removed Member From Class: ClassName=U_RTC Member=C179
+Removed Member From Class: ClassName=U_RF_2 Member=C180
+Removed Member From Class: ClassName=U_RTC Member=C183
+Removed Member From Class: ClassName=U_RTC Member=C185
+Removed Member From Class: ClassName=U_RF Member=FB11
+Removed Member From Class: ClassName=U_ADC Member=R11
+Removed Member From Class: ClassName=U_DAC Member=R19
+Removed Member From Class: ClassName=U_Ethernet Member=R57
+Removed Member From Class: ClassName=U_Ethernet Member=R62
+Removed Member From Class: ClassName=U_Fabric_IO Member=R68
+Removed Member From Class: ClassName=U_MSS_IO Member=R77
+Removed Member From Class: ClassName=U_MSS_IO Member=R78
+Removed Member From Class: ClassName=U_usb_uart Member=R89
+Removed Member From Class: ClassName=U_RF Member=R90
+Removed Member From Class: ClassName=U_usb_uart Member=R90
+Added Member To Class: ClassName=U_Analog Member=Component C71 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C90 Cap Semi
+Added Member To Class: ClassName=U_Ethernet Member=Component C92 Cap Pol3
+Added Member To Class: ClassName=U_MSS_IO Member=Component C112 Cap Semi
+Added Member To Class: ClassName=U_MSS_IO Member=Component C113 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C117 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C129 Cap Pol3
+Added Member To Class: ClassName=U_RF Member=Component C131 Cap Pol3
+Added Member To Class: ClassName=U_RF Member=Component C135 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component C136 Cap Semi
+Added Member To Class: ClassName=U_RF_2 Member=Component C184 Cap Semi
+Added Member To Class: ClassName=U_RF_2 Member=Component C186 Cap Semi
+Added Member To Class: ClassName=U_RTC Member=Component C189 Cap Semi
+Added Member To Class: ClassName=U_RTC Member=Component C190 Cap Semi
+Added Member To Class: ClassName=U_RTC Member=Component C191 Cap Semi
+Added Member To Class: ClassName=U_RF Member=Component FB9 BLM18PG300SN1D
+Added Member To Class: ClassName=U_PWR_Gen Member=Component J27 5004
+Added Member To Class: ClassName=U_ADC Member=Component R9 Res3
+Added Member To Class: ClassName=U_DAC Member=Component R18 Res3
+Added Member To Class: ClassName=U_Ethernet Member=Component R31 Res3
+Added Member To Class: ClassName=U_Ethernet Member=Component R54 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R66 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R74 Res3
+Added Member To Class: ClassName=U_MSS_IO Member=Component R75 Res3
+Added Member To Class: ClassName=U_RF Member=Component R82 Res3
+Added Member To Class: ClassName=U_usb_uart Member=Component R85 Res3
+Added Member To Class: ClassName=U_usb_uart Member=Component R86 Res3

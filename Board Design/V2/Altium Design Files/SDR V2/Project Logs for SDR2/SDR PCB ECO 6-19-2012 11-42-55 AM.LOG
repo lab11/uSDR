@@ -1,0 +1,57 @@
+Removed Pin From Net: NetName=VCC3.3_ADC Pin=R9-1
+Removed Pin From Net: NetName=ADC_DFS Pin=R9-2
+Removed Pin From Net: NetName=DAC_DACEN Pin=R16-1
+Removed Pin From Net: NetName=NetR16_2 Pin=R16-2
+Removed Pin From Net: NetName=DAC_PD Pin=R17-1
+Removed Pin From Net: NetName=NetR17_2 Pin=R17-2
+Removed Pin From Net: NetName=VCC3.3_RF Pin=R74-1
+Removed Pin From Net: NetName=RF_RXHP Pin=R74-2
+Removed Pin From Net: NetName=RF_S\H\D\N\ Pin=R78-1
+Removed Pin From Net: NetName=NetR78_2 Pin=R78-2
+Removed Member From Class: ClassName=U_Ethernet Member=FB5
+Change Component Designator: OldDesignator=R9 NewDesignator=R10
+Change Component Designator: OldDesignator=R16 NewDesignator=R19
+Change Component Designator: OldDesignator=R17 NewDesignator=R20
+Change Component Designator: OldDesignator=R74 NewDesignator=R81
+Change Component Designator: OldDesignator=R78 NewDesignator=R84
+Added Component: Designator=R9(0402)
+Added Component: Designator=R16(0402)
+Added Component: Designator=R17(0402)
+Added Component: Designator=R74(0402)
+Added Component: Designator=R78(0402)
+Added Pin To Net: NetName=VCC3.3_ADC Pin=R9-1
+Added Pin To Net: NetName=ADC_DFS Pin=R9-2
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetC83_2 Pin=R10-2
+Added Pin To Net: NetName=DAC_DACEN Pin=R16-1
+Added Pin To Net: NetName=NetR16_2 Pin=R16-2
+Added Pin To Net: NetName=DAC_PD Pin=R17-1
+Added Pin To Net: NetName=NetR17_2 Pin=R17-2
+Added Pin To Net: NetName=VCC2.5 Pin=R19-1
+Added Pin To Net: NetName=TD_P Pin=R19-2
+Added Pin To Net: NetName=NetR20_1 Pin=R20-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=R20-2
+Added Pin To Net: NetName=VCC3.3_RF Pin=R74-1
+Added Pin To Net: NetName=RF_RXHP Pin=R74-2
+Added Pin To Net: NetName=RF_S\H\D\N\ Pin=R78-1
+Added Pin To Net: NetName=NetR78_2 Pin=R78-2
+Added Pin To Net: NetName=SCLK Pin=R81-1
+Added Pin To Net: NetName=RF_SCLK Pin=R81-2
+Added Pin To Net: NetName=DGND Pin=R84-1
+Added Pin To Net: NetName=NetD9_2 Pin=R84-2
+Added Member To Class: ClassName=U_Ethernet Member=Component FB6 BLM18PG300SN1D
+Added Member To Class: ClassName=U_Ethernet Member=Component FB8 BLM18PG300SN1D
+Added Member To Class: ClassName=U_usb_uart Member=Component FB10 BLM18PG300SN1D
+Added Member To Class: ClassName=U_usb_uart Member=Component J17 54819-0572
+Added Member To Class: ClassName=U_Fabric_IO Member=Component P8 Header 8X2
+Added Member To Class: ClassName=U_MSS_IO Member=Component P9 Header 4X2
+Added Member To Class: ClassName=U_MSS_IO Member=Component P10 Header 6X2
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R56 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R57 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R58 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R59 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R60 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R61 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R62 Res3
+Added Member To Class: ClassName=U_Fabric_IO Member=Component R63 Res3
+Added Member To Class: ClassName=U_RF Member=Component R81 Res3

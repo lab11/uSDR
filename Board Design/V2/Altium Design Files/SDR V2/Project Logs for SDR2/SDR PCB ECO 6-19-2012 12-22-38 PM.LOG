@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=VCC5_USB Pin=SW6-2
+Removed Pin From Net: NetName=NetP14_1 Pin=SW6-4
+Removed Pin From Net: NetName=ETH_POE Pin=SW6-5
+Added Pin To Net: NetName=NetP14_1 Pin=SW6-2
+Added Pin To Net: NetName=ETH_POE Pin=SW6-4
+Added Pin To Net: NetName=VCC5_USB Pin=SW6-5
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C167 Cap Semi
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C168 Cap Pol3
+Added Member To Class: ClassName=U_PWR_Gen Member=Component C169 Cap Pol3
+Added Member To Class: ClassName=U_RF_2 Member=Component U20 74AUP1GU04

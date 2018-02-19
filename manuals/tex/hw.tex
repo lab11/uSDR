@@ -1,0 +1,321 @@
+\chapter{Hardware}
+
+\hl{NOTE: needs a top level diagram. That would make the connections a lot easier to follow.}
+
+\hl{IDEA: combine all of the IO connection tables into one super table so all wiring is in one spot.}
+
+The major components of \sdr are the following:
+\begin{description}
+	\item[Microsemi Smartfusion] \hfill \\
+	The procssing core of \sdr. It incorporates an
+	analog computing engine, a flash-based FPGA and a hardcore ARM Cortex-M3.
+	\item[MAXIM MAX2831] \hfill \\
+	The MAXIM 2831 is a 2.4~GHz ISM band RF frontend. This
+	chip integrates common RF blocks (power amplifier, filters, voltage
+	control oscillator, etc.) into a single chip.
+	\item[Analog Device AD9288] \hfill \\
+	8-bits Dual channel high speed ADC. Three variants
+	are available. The one which is currently employed on \sdr is 80~MSP/s.
+	\item[MAXIM MAX5189] \hfill \\
+	8-bits Dual channel 40~MHz DAC. Both channels share
+	the same input but latching the data using different edges of clock input.
+	\item[Micrel KS8721CL] \hfill \\
+	100Base-TX Physical Layer Transceiver providing RMII interfaces to MACs
+	and switches.
+	\item[FTDI FT232R] \hfill \\
+	USB to UART interface. It connects to the UART0 of SmartFusion device.
+	\item[External Mem] \hfill \\
+	\sdr has 2 external memories which are 16~MB PSRAM and 8~MB flash installed.
+
+\end{description}
+
+\section{Power}
+\subsection{Power Rails}
+\sdr uses many different power rails for many purposes. Every power rail is produced by an
+LDO (Low Drop-Out regulator).
+\begin{enumerate}
+	\item 3.3~V, the major power supply for {\bf Smartfusion, ADC, DAC, RF, Ethernet,
+	USB, RTC, PSRAM, and FLASH}
+	\item 2.85~V, {\bf RF} only.
+	\item 1.8~V, {\bf PSRAM} only.
+	\item 1.5~V, {\bf Smartfusion(Core)} only.
+\end{enumerate}
+
+\subsection{Power Source}
+\sdr can be powered by USB, PoE, exposed headers or power jack. A 4-way switch is used to select
+the input power source.
+
+\subsection{1.5V on-chip regulator}
+The SmartFusion integrates a 1.5~V on-chip regulator. This regulator could be turned on
+by triggering a specific IO or software interrupt. Similarly, this regulator could
+be turned off by setting a specific register.
+
+Jumper P15 (``int1.5\_en'') must be jumpered in order to enable the on-chip 1.5~V regulator. Jumper P16 (``V\_1.5int'')
+is the 1.5~V power selector. Jumpering the upper 2 pins powers the \sdr using the external
+regulator. In contrast, jumpering the bottom 2 pins causes \sdr to use the on-chip 1.5~V regulator.
+
+\subsection{Enabling/Disabling Power}
+\sdr offers many jumpers to separate the power domain across subsystems. User can
+manually disconnect the power supplies by removing the jumpers. These jumpers also provide
+convenient locations to measure the current
+through a specific chip.
+
+Note: 1.5~V and 3.3~V on SmartFusion and Ethernet are required
+for the \sdr to operate properly.
+
+\hl{NOTE: this needs to be further explained with a table of what jumpers power what.}
+
+\section{RF Frontend}
+The MAX2831 provides a 3-wire SPI interface as well as a 7-bit wide gain control bus.
+Every register can be written through the SPI interface, however, the SPI interface doesn't allow
+for reading the current registers' value. TX baseband gain, RX baseband gain and
+RX LNA gain can be controlled using these registers and 7-bit bus. Since the SPI interface clocks
+a single bit at a time, it has longer latency when setting the gain control than the 7-bit bus.
+Therefore, AGC benefits from the parallel bus.
+In order to enable the parallel bus gain control, registers 8 D12 and 9 D10
+must be asserted. In the receiving mode, bits B7 and B6 control the LNA gain setting and bits B5\~{}B1
+control the baseband VGA gain.
+
+Two additional control wires (RX\textbackslash{}TX, SHDN) control the modes. Available
+modes are listed in Table~31 in datasheet~\cite{MAX2831}.
+
+The analog RSSI signal is connected to a low-power serial ADC~\cite{ADC081S101} that operates up to 1~MSP/s.
+The maximum output of serial ADC is 223 (3.3~V) instead of 255. Therefore, the step size
+of serial ADC is {\bf 14.8~mV}.
+
+The MAX2831 separates the TX/RX path. Since it cannot fully duplex communication, an
+RF switch~\cite{AS213} is used to allow a single antenna. If desired, users can
+use separate antennas by applying the three small changes listed below.
+
+{\bf Instructions for Using Separate Antennas:}
+\begin{enumerate}[noitemsep]
+	\item Remove C184, C186.
+	\item Short R94, R95.
+	\item Install antennas on J31, J33.
+\end{enumerate}
+
+\subsection{Test Points}
+Various test points are available on \sdr. Analog signals include TX/RX I/Q channels, LD, CLK and RSSI.
+P12, P13 (on the edge of \sdr) provide digital test points for SPI interface of MAX2831 and
+ADC081S101.
+
+\hl{NOTE: need a better table for this. It's not clear which pins exactly
+correspond to which SPI signals.}
+
+\subsection{IO connection}
+MAX2831 interface
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	RX\textbackslash{}TX 	& L18 & Out\\ \hline
+	SHDN 	& M18 & Out\\ \hline\hline
+	\={CS}	& H20 & Out\\ \hline
+	DATA	& J22 & In\\ \hline
+	CLK		& L22 & Out\\ \hline\hline
+	B1 (VGA, LSB) 	& D7 & Out\\ \hline
+	B2 (VGA)		& E8 & Out\\ \hline
+	B3 (VGA)		& C4 & Out\\ \hline
+	B4 (VGA)		& C5 & Out\\ \hline
+	B5 (VGA, MSB)	& D8 & Out\\ \hline
+	B6 (LNA, LSB)	& C7 & Out\\ \hline
+	B7 (LNA, MSB)	& C8 & Out\\ \hline
+\end{tabular}
+\end{table}
+
+RSSI Serial ADC (ADC081S101) interface (SPI)
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	\={CS}	& H17 & Out\\ \hline
+	DATA	& H22 & In\\ \hline
+	CLK		& H18 & Out\\ \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+\section{ADC}
+Channels A and B of the AD9288~\cite{AD9288} are connected to the In-phase and Quad-phase channels of the MAX2831, respectively.
+The input common-mode voltage of the AD9288 is 0.3$*$VDD which is 0.99~V. However, the common-mode
+voltage of the MAX2831 is not able to be tuned to 0.99~V. A voltage reference chip, the MAX6061~\cite{MAX6061},
+and a voltage divider are used to alter the common-mode voltage.
+
+The output of the AD9288 on \sdr is pre-configured to 2's complement output. Therefore,
+D7\subscript{A, B} are sign bits for each channel. Deassert signal S1 to put the AD9288 into
+standby mode. More detail can be found in Table~4 in datasheet~\cite{AD9288}.
+
+\subsection{IO connection}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	D0\subscript{A} (I, LSB) 	& C21 & In\\ \hline
+	D1\subscript{A} 			& D21 & In\\ \hline
+	D2\subscript{A}				& B20 & In\\ \hline
+	D3\subscript{A}				& C19 & In\\ \hline
+	D4\subscript{A}				& G19 & In\\ \hline
+	D5\subscript{A}				& F19 & In\\ \hline
+	D6\subscript{A}	(I, MSB)	& G21 & In\\ \hline
+	D7\subscript{A} (I, Sign)	& G20 & In\\ \hline\hline
+	D0\subscript{B} (Q, LSB) 	& K17 & In\\ \hline
+	D1\subscript{B} 			& J17 & In\\ \hline
+	D2\subscript{B}				& F21 & In\\ \hline
+	D3\subscript{B}				& F20 & In\\ \hline
+	D4\subscript{B}				& G18 & In\\ \hline
+	D5\subscript{B}				& G17 & In\\ \hline
+	D6\subscript{B}	(Q, MSB)	& E18 & In\\ \hline
+	D7\subscript{B} (Q, Sign)	& F17 & In\\ \hline\hline
+	CLK							& A17 & Out\\ \hline\hline
+	S1							& D18 & Out\\ \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+\section{DAC}
+Similarly, the MAX6061 voltage reference chip is deployed on the transmission path to pull the
+common-mode voltage. The MAX5189~\cite{MAX5189} uses both edges of the clock to update both
+channel outputs. The maximum clock input frequency of the MAX5189 is 40~MHz. The combination
+of DACEN and PD determines the operation mode, more detailed information can be found
+in Table~1 of the datasheet~\cite{MAX5189}.
+
+\subsection{IO connection}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	D0 (LSB)	& E1  & Out\\ \hline
+	D1			& F3  & Out\\ \hline
+	D2			& G4  & Out\\ \hline
+	D3			& H5  & Out\\ \hline
+	D4			& H6  & Out\\ \hline
+	D5			& J6  & Out\\ \hline
+	D6			& B22 & Out\\ \hline
+	D7 (MSB)	& C22 & Out\\ \hline\hline
+	CLK			& A18 & Out\\ \hline\hline
+	DACEN		& F1  & Out\\ \hline\hline
+	PD			& G2  & Out\\ \hline
+\end{tabular}
+\end{table}
+
+\section{User's IO}
+\sdr has eight user-defined LEDs and four push-button switches. The LEDs and switches are {\bf active low}. The LEDs/switches
+are connected to the Fabric, however, users can route the connection to the MSS IO. In addition, two IO
+banks also available on \sdr. A 16-pin wide interface is connected to the Fabric, whereas an 8-pin
+bus is connected to fixed\footnote{GPIOs on Fabric are able to route to MSS IO Pads, however,
+GPIOs on MSS cannot be routed to Fabric.}
+MSS GPIOs. Libero SoC must be configured to enable the MSS GPIO.
+
+\subsection{IO connection}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	LED0 & J20 & Out \\ \hline
+	LED1 & J19 & Out \\ \hline
+	LED2 & K20 & Out \\ \hline
+	LED3 & K21 & Out \\ \hline
+	LED4 & L20 & Out \\ \hline
+	LED5 & L21 & Out \\ \hline
+	LED6 & K18 & Out \\ \hline
+	LED7 & K19 & Out \\ \hline\hline
+	SW1  & J21 & In	 \\ \hline
+	SW2  & B19 & In	 \\ \hline
+	SW3  & D15 & In	 \\ \hline
+	SW4  & E14 & In	 \\ \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	Fabric IO\subscript{0}	& N6 & In/Out \\ \hline
+	Fabric IO\subscript{1}	& M6 & In/Out \\ \hline
+	Fabric IO\subscript{2}	& P1 & In/Out \\ \hline
+	Fabric IO\subscript{3}	& P2 & In/Out \\ \hline
+	Fabric IO\subscript{4}	& N3 & In/Out \\ \hline
+	Fabric IO\subscript{5}	& N2 & In/Out \\ \hline
+	Fabric IO\subscript{6}	& M2 & In/Out \\ \hline
+	Fabric IO\subscript{7}	& M1 & In/Out \\ \hline
+	Fabric IO\subscript{8}	& M4 & In/Out \\ \hline
+	Fabric IO\subscript{9}	& L3 & In/Out \\ \hline
+	Fabric IO\subscript{10}	& L2 & In/Out \\ \hline
+	Fabric IO\subscript{11}	& L1 & In/Out \\ \hline
+	Fabric IO\subscript{12}	& L5 & In/Out \\ \hline
+	Fabric IO\subscript{13}	& K4 & In/Out \\ \hline
+	Fabric IO\subscript{14}	& L6 & In/Out \\ \hline
+	Fabric IO\subscript{15}	& K6 & In/Out \\ \hline\hline
+	MSS IO\subscript{0}		& T3 & In/Out \\ \hline
+	MSS IO\subscript{1}		& V3 & In/Out \\ \hline
+	MSS IO\subscript{2}		& U3 & In/Out \\ \hline
+	MSS IO\subscript{3}		& T4 & In/Out \\ \hline
+	MSS IO\subscript{4}		& AA2& In/Out \\ \hline
+	MSS IO\subscript{5}		& AB2& In/Out \\ \hline
+	MSS IO\subscript{6}		& AB3& In/Out \\ \hline
+	MSS IO\subscript{7}		& Y3 & In/Out \\ \hline
+\end{tabular}
+\end{table}
+
+\section{TCXO}
+The PCF2127A~\cite{PCF2127A} is a temperature-compensated low-frequency oscillator. It provides $\pm$3ppm stability
+over a wide range of temperature and it replaces the 32.768~KHz crystal oscillator \hl{ replaces what crystal oscillator?}.
+The configuration
+interface is connected to the MSS SPI bus 1\footnote{It's a fixed connection and needs to be initiated in
+Libero SoC MSS configuration tool.} and the interrupt is connected to a Fabric IO. A external coin-cell
+battery provides an additional power source for the PCF2127A. \sdr automatically switches the power source if V\subscript{DD} is
+less than a certain threshold. \hl{ Less than what threshold?}
+\subsection{IO connection}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	INT & B7 & In\\ \hline\hline
+	D\subscript{IN} & T17 & Out\\ \hline
+	D\subscript{OUT} & V19 & In\\ \hline
+	CLK & AA22 & Out\\ \hline
+	\={CS} & W21 & Out\\ \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+\section{Ethernet}
+\subsection{Power over Ethernet}
+\sdr can be powered by Ethernet. The PoE module on the \sdr is the AG9205S~\cite{AG9200S} and it provides up to
+13~W power output. The default power setting on \sdr is configured to 3.84~W, which is equivalent to 768~mA
+maximum current. The setting can be changed by replacing the configuration
+resistor R50. More power ratings are available in Table~2 in datasheet~\cite{AG9200S}.
+
+\subsection{Disabling KSZ8721}
+The Ethernet transceiver KSZ8721 on \sdr is enabled by default. The transceiver draws about 50~mA
+when in an idle state. In low-power applications when the transceiver is not needed, it can be turned off\footnote{
+The Ethernet subsystem cannot be disabled by removing the jumper P7 (``V\_eth3.3''). Doing this results in the SmartFusion working
+improperly.} by patching the \sdr.
+
+{\bf Instructions to Disable the KSZ8721 Ethernet Module:}
+\begin{enumerate}[noitemsep]
+	\item Remove R36.
+	\item Put 10~K resistor on R33.
+\end{enumerate}
+
+\subsection{IO connection}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+	\hline
+	{\bf Name} & {\bf Physical Connection} & {\bf Direction}\\ \hline
+	CLK (50~MHz) & E3 & In \\ \hline
+\end{tabular}
+\end{table}
+
+%\section{USB}
+%\section{External Memory}

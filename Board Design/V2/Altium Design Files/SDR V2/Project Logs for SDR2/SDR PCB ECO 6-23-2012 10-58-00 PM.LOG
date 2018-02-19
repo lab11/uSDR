@@ -1,0 +1,74 @@
+Change Component DesignItemId : Designator=P14 Old DesignItemId=Header 2 New DesignItemId=1 x 2 header
+Change Component Footprint: Designator=P14 Old Footprint=HDR1X2 New Footprint=1x2 header
+Change Component Comment : Designator=P14 Old Comment=Header 2 New Comment=1 x 2 header
+Added Component: Designator=P1(1x2 header)
+Added Component: Designator=P2(1x2 header)
+Added Component: Designator=P3(1x2 header)
+Added Component: Designator=P4(1x2 header)
+Added Component: Designator=P5(1x2 header)
+Added Component: Designator=P6(1x2 header)
+Added Component: Designator=P7(1x2 header)
+Added Component: Designator=P11(1x2 header)
+Added Component: Designator=P12(1x3 header)
+Added Component: Designator=P13(1x3 header)
+Added Component: Designator=P15(1x2 header)
+Added Component: Designator=P16(1x3 header)
+Added Component: Designator=P17(1x2 header)
+Added Component: Designator=P18(1x2 header)
+Added Component: Designator=P19(1x2 header)
+Added Component: Designator=P20(1x2 header)
+Added Component: Designator=P21(1x2 header)
+Added Pin To Net: NetName=VCC3.3 Pin=P1-1
+Added Pin To Net: NetName=VCC3.3_SRAM Pin=P1-2
+Added Pin To Net: NetName=VCC1.8 Pin=P2-1
+Added Pin To Net: NetName=VCC1.8_SRAM Pin=P2-2
+Added Pin To Net: NetName=VCC3.3 Pin=P3-1
+Added Pin To Net: NetName=VCC3.3_FLASH Pin=P3-2
+Added Pin To Net: NetName=VCC3.3 Pin=P4-1
+Added Pin To Net: NetName=VCC3.3_SF Pin=P4-2
+Added Pin To Net: NetName=VCC3.3 Pin=P5-1
+Added Pin To Net: NetName=VCC3.3_ADC Pin=P5-2
+Added Pin To Net: NetName=VCC3.3 Pin=P6-1
+Added Pin To Net: NetName=VCC3.3_DAC Pin=P6-2
+Added Pin To Net: NetName=VCC3.3 Pin=P7-1
+Added Pin To Net: NetName=VCC3.3_ETH Pin=P7-2
+Added Pin To Net: NetName=VCC3.3 Pin=P11-1
+Added Pin To Net: NetName=VCC3.3_RF Pin=P11-2
+Added Pin To Net: NetName=RSSI_SDATA Pin=P12-1
+Added Pin To Net: NetName=RSSI_SCLK Pin=P12-2
+Added Pin To Net: NetName=RSSI_C\S\ Pin=P12-3
+Added Pin To Net: NetName=RF_DIN Pin=P13-1
+Added Pin To Net: NetName=RF_SCLK Pin=P13-2
+Added Pin To Net: NetName=RF_C\S\ Pin=P13-3
+Added Pin To Net: NetName=PU_N Pin=P15-1
+Added Pin To Net: NetName=NetP15_2 Pin=P15-2
+Added Pin To Net: NetName=VCC1.5_INT Pin=P16-1
+Added Pin To Net: NetName=VCC1.5_SF Pin=P16-2
+Added Pin To Net: NetName=VCC1.5_EXT Pin=P16-3
+Added Pin To Net: NetName=DGND Pin=P17-1
+Added Pin To Net: NetName=DGND Pin=P17-2
+Added Pin To Net: NetName=DGND Pin=P18-1
+Added Pin To Net: NetName=DGND Pin=P18-2
+Added Pin To Net: NetName=DGND Pin=P19-1
+Added Pin To Net: NetName=DGND Pin=P19-2
+Added Pin To Net: NetName=DGND Pin=P20-1
+Added Pin To Net: NetName=DGND Pin=P20-2
+Added Pin To Net: NetName=VCC2.85 Pin=P21-1
+Added Pin To Net: NetName=NetFB12_1 Pin=P21-2
+Added Member To Class: ClassName=U_MEM Member=Component P1 1 x 2 header
+Added Member To Class: ClassName=U_MEM Member=Component P2 1 x 2 header
+Added Member To Class: ClassName=U_MEM Member=Component P3 1 x 2 header
+Added Member To Class: ClassName=U_Digital_PWR Member=Component P4 1 x 2 header
+Added Member To Class: ClassName=U_ADC Member=Component P5 1 x 2 header
+Added Member To Class: ClassName=U_DAC Member=Component P6 1 x 2 header
+Added Member To Class: ClassName=U_Ethernet Member=Component P7 1 x 2 header
+Added Member To Class: ClassName=U_RF Member=Component P11 1 x 2 header
+Added Member To Class: ClassName=U_RF Member=Component P12 1 x 3 header
+Added Member To Class: ClassName=U_RF Member=Component P13 1 x 3 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P15 1 x 2 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P16 1 x 3 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P17 1 x 2 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P18 1 x 2 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P19 1 x 2 header
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P20 1 x 2 header
+Added Member To Class: ClassName=U_RF_2 Member=Component P21 1 x 2 header

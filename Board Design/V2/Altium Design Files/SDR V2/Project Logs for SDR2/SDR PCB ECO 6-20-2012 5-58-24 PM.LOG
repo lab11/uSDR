@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=ADC_RX_I_P Pin=J1-1
+Removed Pin From Net: NetName=ADC_RX_I_N Pin=J2-1
+Removed Pin From Net: NetName=ADC_RX_Q_N Pin=J3-1
+Removed Pin From Net: NetName=ADC_RX_Q_P Pin=J4-1
+Added Pin To Net: NetName=ADC_RX_I_BIAS_P Pin=J1-1
+Added Pin To Net: NetName=ADC_RX_I_BIAS_N Pin=J2-1
+Added Pin To Net: NetName=ADC_RX_Q_BIAS_N Pin=J3-1
+Added Pin To Net: NetName=ADC_RX_Q_BIAS_P Pin=J4-1

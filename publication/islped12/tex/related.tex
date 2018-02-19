@@ -1,0 +1,226 @@
+\section{Related Work}
+\label{sec:related}
+
+\begin{comment}
+\begin{table*}
+\centering
+\begin{threeparttable}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|} \hline
+		\rowcolor[gray]{0}
+		% header line
+		\multicolumn{1}{|>{\columncolor[gray]{0}}c|}{\sc {\color{white} Platform}} &
+		{\sc {\color{white} Sleep}} &
+		{\sc {\color{white} Power}} &
+		{\sc {\color{white} Size }}&
+		{\sc {\color{white} Interconnect}}&
+		{\sc {\color{white} Throughput}} &
+		{\sc {\color{white} Price}} &
+		% XXX: Usage -> adoption? Or some such metric is the idea behind this column
+		{\sc {\color{white} Realization}}
+		\\ \hline
+		% SORA cost is totally estimated? No reference in the paper, but > PC cost..
+		SORA {\small \cite{sora}}	 & -	& $>$100~W\tnote{c}	 & 36000~cm$^{3}$\tnote{c} & PCI-Express	& 16.7~Gb/s	& \$2000\tnote{c} & Research \\ \hline
+		% KUAR power Pentium M min 5W, size COM Express 125 × 95 x (2 assumed) = 237.5, round 240, price: says "low cost" 3 times, but no price :(
+		KUAR {\small \cite{kuar}}	 & -	& $>$5~W		 & 240~cm$^{3}$\tnote{f} &PCI-Express	& 2~Gb/s	& - & Research \\ \hline
+		SODA {\small (180nm)~\cite{soda}} & -& \realtilde3~W & 26.6~mm$^{3}$\tnote{e}& DMA\tnote{a}	& 24~Mb/s\tnote{b} & -\tnote{d} & Simulated \\ \hline
+		SODA {\small (90nm)~\cite{soda}} & -& \realtilde0.5~W & 6.7~mm$^{3}$\tnote{e}	& DMA\tnote{a}	& 24~Mb/s\tnote{b} & -\tnote{d} & Theoretical \\ \hline
+		% WARP (numbers from energy wiki, where orig?), area 20 x 20 x >1, but we don't know it for sure so estimate conservative 2cm
+		% Orig NRG num 10~15W, +30W / daughter card: 10~130W
+		WARP~{\small \cite{warp-platform}} & -	& 10\realtilde130~W	 & 800~cm$^{3}$\tnote{f}	& Parallel MGTs\tnote{g}	& 24~Gb/s	& \$9750	 & Research \\ \hline
+		%AirBlue Not really a platform
+		% USRP 2, power 1.3-2.3A * 6V, area 22 x 16 x 5 cm
+		% rate to/from host 50 MHz recv, 25 MHz xmit, 50/25 MSPS also
+		% we'll go generous on the reported value
+		USRP 2\tnote{c}~~{\small \cite{usrp:n200}}& -  & 7.9\realtilde13.8~W\tnote{c}	& 1760~cm$^{3}$\tnote{c} & Ethernet		& 1~Gb/s	& \$1700\tnote{c} & Commercial \\ \hline
+		% E100, power 1.5-2.5A * 6V, area 22 x 16 x 5 cm
+		% idle power is ~900mA * 6V = 5.5W
+		% rate to/from host 4MHz, 4MSPS
+% OMAP 3 GPMC Bus throughput: (we'll use best possible)
+% http://e2e.ti.com/support/dsp/omap_applications_processors/f/42/t/35182.aspx#123019
+		USRP E100~{\small \cite{usrp:e100}}& 5.5~W	& 9\realtilde15~W		 & 1760~cm$^{3}$		& OMAP 3 GPMC & 1.3~Gb/s	& \$1300	 & Commercial \\ \hline
+		% uSDR, area 13 x 7 x 2
+		\rowcolor[gray]{.9}
+		\sdr	 & 0.32~W	& 1.4~W			 & 182~cm$^{3}$	& AMBA		& 1.4~Gb/s	& \$150\tnote{h}	 & Research \\ \hline
+	\end{tabular}
+	\begin{tablenotes}
+		\small
+		\item [a] Memory bus architecture not specified in~\cite{soda}.
+		\item [b] Inferred minimum, may be faster.
+		\item [c] Requires a companion PC. Not factored in power, portability, or cost for the USRP 1/2.
+		\item [d] SODA is a custom chip that would likely have an extremely high die cost, but low per-unit cost.
+		\item [e] Assumes $1mm$ thick.
+		\item [f] Assumes $2cm$ thick.
+		\item [g] ``Multi-Gigabit Transceiver'', an interconnect technology built into Xilinx FPGAs. Uses up to 8 parallel 3~Gb/s transceivers
+		\item [h] Assumes 1,000 unit production run. See Table~\ref{tab:cost} for detailed breakdown.
+	\end{tablenotes}
+	\caption{A comparison of SDR platforms. The range in power comes from
+boards whose power usage varies depending on the presence and type of daughter
+card installed in the system. Where possible a measured idle / sleep power is
+also shown.  For platforms that only list area we make reasonable assumptions
+on height. \sdr is 10\% the cost of the next most expensive SDR platform, yet
+provides parable speeds in the smallest non-IC package. It uses less power
+than any realized hardware and nearly ties the previous best theoretical
+hardware.}
+	\label{tab:comparison}
+\end{threeparttable}
+\end{table*}
+\end{comment}
+
+While there are a diverse array of SDR platforms~(\cite{warp-platform,
+  soda, kuar, sora}), none of the current platforms are suitable for low
+power radio research and development. In particular, \sdr optimizes
+for power, price, and portability without appreciably sacrificing
+flexibility or usability. A comparison to previous SDR platforms is
+shown in Table~\ref{tab:comparison}.
+
+\subsection{Throughput and Latency}
+\label{sec:related-throughput}
+% PCI-Express up to 25W max draw
+As Schmid identifies in~\cite{schmid-latency}, a strongly limiting
+factor for any SDR system is the available throughput and latency of
+the interconnect between the ``hard'' and ``soft'' portions of the SDR
+platform. As this latency defines the critical path for the control
+loop, previous work places significant focus on minimizing it.
+
+In developing SORA, the PCI-Express bus was selected for its bounded
+latency and high throughput, at the cost
+of its high power requirements and restricting the platform to the PC
+form factor. This design affords SORA the support of a complete PC
+operating system for multi-tasking and control, at the cost of
+run-time adaptivity.
+%
+Ettus's USRP platform also relies on the PC operating system for much
+of its command and control functionality, however it eschews the fixed
+form-factor of the PCI-E bus, instead relying on more conventional
+peripheral buses: USB or Ethernet. While these
+buses do provide high throughput, Nychis et al. find their
+latency to be highly variable, as high as
+9000$\mu$s~\cite{cmu-mac-sdr}. For the development of low-power
+protocols, such high and variable latency is untenable.
+
+\begin{comment}
+Ettus's USRP platform also relies on a controlling PC, however it trades
+throughput for flexibility. The USRP is a run-time peripheral, utilizing
+either USB (480~Mbits/s) or Ethernet (1~Gb/s) as a interconnect. The effective
+rate, however, is limited by hardware components to 50~MHz receiving and 25~MHz
+transmitting).  Nychis further shows in~\cite{cmu-mac-sdr} that the
+variable latency of the USB and Ethernet interfaces further reduce the
+effective throughput when reliable latency is required - a key component in
+the development of low-power protocols. Ettus's embedded E100 platform suffers
+from the same limitations, running a full Linux instance on the embedded
+Gumstix platform to interface with the software radio over the same
+channels~\cite{ettus}. % XXX: Did we ever prove this?
+\end{comment}
+%
+% Okay SODA, I quit, I do not know how to reasonably compare your throughput /
+% latency to any other platform. Intra-core speed is comparable to the
+% processing power of the FPGA (when all cores are combined), inter-core
+% throughput is probably best, but they don't report this at all...
+Instead then, \sdr follows in the footsteps of SODA, tightly coupling
+the hardware compute engine with an ARM Cortex-M3 core~\cite{soda}. Both systems
+allow for low latency (0.46~$\mu$s) and high throughput
+(172~MB/s). 
+%(though OS's for the M3 do exist~\cite{coocox,etc})
+Neither SODA nor \sdr use an operating system in the traditional
+sense, however as a custom micro architecture, SODA goes even
+further. It defines a slightly customized VLIW+SIMD ISA and sacrifices
+traditional memory consistency semantics for performance. Users of
+SODA then must carefully hand-tune their programs not only to optimize
+performance, but to even run correctly. SODA is not a full-featured
+SDR platform, rather an advanced DSP architecture. While this
+microarchitectural compromise allows for better performance per watt,
+\sdr has been realized in existing commodity hardware (as opposed to
+just simulation), with a measured full system power draw only slightly
+higher than SODA's theoretical optimized form, as
+Table~\ref{tab:comparison} shows.
+% also would like to say something here about \sdr not yet being at all
+% optimized for power (gating, etc)
+
+\subsection{Power}
+\label{sec:related-power}
+We first divide existing
+SDR platforms into two broad categories: those reliant on a PC or
+PC-architecture and those that are stand alone. Power and portability
+are not a design consideration for these PC-platforms (SORA and USRP
+2), thus it is unsurprising that \sdr, along with the other embedded
+platforms, are orders of magnitude better in these metrics.
+
+Of the remaining platforms, \sdr, KUAR, WARP, USRP E100, and SODA,
+\sdr excels in power draw and is competitive in size with all except
+the custom chip SODA. Both KUAR and the USRP E100 can be considered
+``near-PC'' platforms that embed low-power, PC-like components in a
+compact form factor.  KUAR does not explicitly report power numbers,
+but builds a custom board driven by a Pentium~M whose most efficient
+model draws 5~W~\cite{pentium-m}, which we use as a generously
+conservative approximation for its power draw.  The USRP E100
+datasheet reports 15~W load with RF daughtercard installed. In our
+power measurements, shown in more detail in
+Section~\ref{sec:eval}, we find an idle power draw of
+5.5~W. The WARP base system draws about 10~W, but is capable of
+supplying up to 30~W to each of four daughter cards, allowing for a
+peak power draw of 130~W.
+
+All of these previous systems have one thing in common: Their power usage is
+reported in {\em watts}.  With \sdr, we deliver the first realized {\em
+sub-watt} SDR platform.  This is a significant milestone. \sdr is the first
+SDR platform capable of running for a full day on a pack of AA
+batteries.
+\begin{comment}
+~\footnote{Extrapolating from~\cite{mote-power}, we consider four AA
+batteries with average of 2500~mAh and a fully charged nominal voltage of
+1.6V~. The minimum supply voltage to \sdr is 4~V, yielding 9.75~Wh of
+usable power. This is enough energy for \sdr to run 7.5 hours at full power
+or 30.5 hours in maximum sleep.}
+\end{comment}
+% Assuming a roughly linear scaling as # of batteries increases
+% 2500mAh * 4.8V = 12Wh = 43200Ws
+% 6.4-5.6V -- 31.25% of 43200 -> 13500
+% 5.6-4.8V -- 27.10% of 43200 -> 11707.2
+% 4.8-4.0V -- 22.90% of 43200 ->  9892.8
+% Don't care after 4V.  Total -> 35100Ws (9.75Wh)
+
+\subsection{Portability}
+\label{sec:related-portability}
+As we enter the era of {\em sub-watt} SDR platforms, we find that the
+size, and in turn portability, of the SDR platform becomes a critical
+design consideration. The current \sdr design is approximately four
+times the size of popular research motes such as the Mica, TelosB, or
+Tmote Sky, shown in Figure~\ref{fig:usdr}. We note that with the
+removal of the external memory controller, \sdr's extra interfaces
+(such as Ethernet), and a slightly more compact layout, the \sdr
+platform could easily halve its size.
+
+\subsection{Price}
+Perhaps the greatest advantage of the \sdr system compared to previous
+work is its extremely low cost -- an order of magnitude less expensive
+than other SDR platform. The first large cost reduction comes from
+building a standalone platform, rather than relying on a costly
+support PC (SORA, USRP2) or the slightly less costly embedded PC-like
+environment (KUAR, USRP E100). The next biggest saving comes from
+eschewing the more traditional daughtercard based SDR approach,
+instead opting to design a dedicated 2.4~MHz RF frontend. We note that
+while the \sdr system lacks physical daughtercards, it does not
+completely sacrifice modularity. Separate RF frontends can be
+``dropped in'' to the schematic and used interchangeably. As evidence,
+collaborators at other institutions
+% Can we say this?
+are already designing a new board with a 5~GHz frontend. We also find
+considerable cost-savings by using fewer and less-powerful FPGAs than
+the WARP platform. Despite the significantly lower processing power of
+the \sdr platform, it is sufficiently capable of supporting an
+802.15.4 radio, and building the radio on a significantly smaller
+budget.
+
+\begin{comment}
+\subsection{Deployability}
+Ultimately, \sdr contributes what we argue to be the first truly
+{\em deployable} SDR platform. Previous platforms were tied to PCs
+(SORA, USRP 2), tied to large power supplies (KUAR, WARP, USRP E100),
+or existed only as simulations (SODA). Even resolving these issues,
+all prior platforms were prohibitively expensive for any large scale
+deployment. We estimate the cost per node of a 1,000 node \sdr
+deployment to be only $\$150$, a full order of magnitude better than
+the previous state of the art.
+\end{comment}
+
+

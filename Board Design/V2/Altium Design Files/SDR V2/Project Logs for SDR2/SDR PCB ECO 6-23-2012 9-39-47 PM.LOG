@@ -1,0 +1,4 @@
+Added Component: Designator=P14(1x2 header)
+Added Pin To Net: NetName=NetP14_1 Pin=P14-1
+Added Pin To Net: NetName=NetP14_1 Pin=P14-2
+Added Member To Class: ClassName=U_PWR_Gen Member=Component P14 1 x 2 header

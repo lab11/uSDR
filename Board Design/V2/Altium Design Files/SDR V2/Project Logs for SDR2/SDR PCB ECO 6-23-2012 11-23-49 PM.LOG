@@ -1,0 +1,18 @@
+Added Component: Designator=P8(2x8 header)
+Added Pin To Net: NetName=USER_IO0 Pin=P8-1
+Added Pin To Net: NetName=USER_IO1 Pin=P8-2
+Added Pin To Net: NetName=USER_IO2 Pin=P8-3
+Added Pin To Net: NetName=USER_IO3 Pin=P8-4
+Added Pin To Net: NetName=USER_IO4 Pin=P8-5
+Added Pin To Net: NetName=USER_IO5 Pin=P8-6
+Added Pin To Net: NetName=USER_IO6 Pin=P8-7
+Added Pin To Net: NetName=USER_IO7 Pin=P8-8
+Added Pin To Net: NetName=USER_IO8 Pin=P8-9
+Added Pin To Net: NetName=USER_IO9 Pin=P8-10
+Added Pin To Net: NetName=USER_IO10 Pin=P8-11
+Added Pin To Net: NetName=USER_IO11 Pin=P8-12
+Added Pin To Net: NetName=USER_IO12 Pin=P8-13
+Added Pin To Net: NetName=USER_IO13 Pin=P8-14
+Added Pin To Net: NetName=USER_IO14 Pin=P8-15
+Added Pin To Net: NetName=USER_IO15 Pin=P8-16
+Added Member To Class: ClassName=U_Fabric_IO Member=Component P8 2 x 8 header

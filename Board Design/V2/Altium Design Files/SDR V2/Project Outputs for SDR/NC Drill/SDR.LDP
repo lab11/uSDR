@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=sdr-roundholes.txt|LayerPairs=gtl,gbl
+LayersSetName=Top_Bot_Square_Holes|DrillFile=sdr-squareholes.txt|LayerPairs=gtl,gbl

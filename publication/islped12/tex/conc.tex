@@ -1,0 +1,33 @@
+\section{Conclusions}
+\label{sec:conc}
+
+Software-defined radios are reconfigurable communication systems that
+transcend historical boundaries between hardware and software subsystems,
+physical and logical layers, and analog and digital domains.  In so doing,
+they enable radical new architectures, novel radio designs, and
+high-performance protocols that are not easy to design, implement, or evaluate
+using traditionally-layered approaches.  Although modern SDR platforms have
+been used to explore many facets of the wireless design space, their current
+architectures make it very difficult to explore the {\em low-power} design
+space.  Their use of SRAM-based FPGAs result in high static and dynamic power
+draws, their slow startup times are not amenable to rapid duty cycling, their
+radio front-ends do not support power controls, and their processing
+requirements place a heavy load on the system.  As a result, fertile
+application areas like mobile phones and sensor networks that could benefit
+from radical approaches, but which require low-power operation, remain
+relatively unexplored.
+
+We developed \sdr to address this inequity. \sdr is a small, low-cost, and
+low-power software-defined radio platform that leverages emerging technology
+like highly-integrated radio front-ends and mixed-signal FPGA processing
+back-ends. This paper demonstrates that a software radio with a footprint of
+below 100~cm$^2$ and costing less than \$150 is able to operate from a
+set of `AA' batteries, and that we can expect a battery-life similar to
+today's smart phones. This work enables new research areas that were completely
+out-of-reach or existed only in severely limited forms in low-power nodes.
+Hence, \sdr is an enabling technology for many high-impact, large scale
+applications of low-power, ad-hoc wireless networking where high performance
+and/or precise timing are required, including full-duplex wireless
+communication, synchronous concurrent communication, high-frequency power
+metering, infrastructure less audio/video streaming, and structural health
+monitoring.

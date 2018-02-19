@@ -1,0 +1,46 @@
+\chapter{Demodulation of 802.15.4}
+\section{Demodulation equation}
+The receiver uses the following equation to demodulate the signal.
+\begin{equation}
+d(t) = R_Q(t)\times R_I(t-\tau) - R_Q(t-\tau)\times R_I(t)
+\end{equation}
+
+where the $R_I(t)/R_Q(t)$ are received In-phase/Quad-phase signals, $\tau$ is the sampling period. Bit decoding depends on
+the sign of $d(t)$. If $d(t)>0$, the decoded bit equals 1 and vice versa.
+
+\section{Decoding principle}
+The 802.15.4 standard uses OQPSK modulation. The In-phase and Quad-phase are shifted by 1/2 symbol time. The symbol time 
+is 1/2 period of sine wave. Namely, the In-phase and Quad-phase are shifted by 1/4 period of sine wave. Thus, the In-phase
+and Quad-phase can be expressed as $\pm sin(t + \theta)$ and $\pm cos(t + \theta)$. Where $\theta \in \{0, \tfrac{\pi}{2}\}$.
+
+For example, one combination of In-phase/Quad-phase is $cos(t)$ and $sin(t), 0<t<\tfrac{pi}{2}$. By applying the demodulation
+equation,
+\begin{align}
+d(t)&= sin(t)\times cos(t-\tau) - sin(t-\tau)\times cos(t) \\
+d(t)&= sin(t)\left[cos(t)cos(\tau) + sin(t)sin(\tau)\right] - cos(t)\left[sin(t)cos(\tau) - cos(t)sin(\tau)\right] \\
+d(t)&= sin^2(t)sin(\tau) + cos^2(t)sin(\tau) = sin(\tau)
+\end{align}
+Therefore, $d(t)$ depends on the sampleing period only. In this example, $d(t)$ is greater than 0 and remains constant 
+during the half-symbol period. The following table lists the total combination of I/Q signals.
+
+\begin{table}[h!]
+\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		In-phase & Quad-phase 	& decoded equation \\ \hline	
+		$cos(t)$ & $sin(t)$		& $sin(\tau)$\\ \hline
+		$cos(t)$ & $-sin(t)$	& $-sin(\tau)$\\ \hline
+		$-cos(t)$ & $sin(t)$	& $-sin(\tau)$\\ \hline
+		$-cos(t)$ & $-sin(t)$	& $sin(\tau)$\\ \hline
+		$sin(t)$ & $cos(t)$		& $-sin(\tau)$\\ \hline
+		$sin(t)$ & $-cos(t)$	& $sin(\tau)$\\ \hline
+		$-sin(t)$ & $cos(t)$	& $sin(\tau)$\\ \hline
+		$-sin(t)$ & $-cos(t)$	& $-sin(\tau)$\\ \hline
+	\end{tabular}
+	\label{tab:demux}
+	\caption{}
+\end{table}
+
+Therefore, the receiver simply determines the incoming bit from the sign of $d(t)$. Note that the I/Q signals coming
+at the symbol rate of 1$\mu$s, and the I/Q shift by 0.5$\mu$s. Every 0.5$\mu$s generates a bit. Bit rate is 2MHz and 
+half-byte is mapped to 32 bits chip sequence, which is 16$\mu$s.

@@ -1,0 +1,161 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc
+Date     : 6/29/2012
+Time     : 10:15:12 AM
+
+Processing Rule : Width Constraint (Min=45.00ohms) (Max=55.00ohms) (Preferred=50.00ohms) ((InNet('RF_RX_ALT') OR InNet('RF_TX_ALT') OR InNet('RF_SW_UB')))
+Rule Violations :0
+
+Processing Rule : Matched Net Lengths(Tolerance=10mil) (InDifferentialPair ('TD'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=8mil) (Max=10mil) (Preferred=8mil) (InDifferentialPair('TD'))
+Rule Violations :0
+
+Processing Rule : Matched Net Lengths(Tolerance=10mil) (InDifferentialPair ('RD'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=8mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RD'))
+Rule Violations :0
+
+Processing Rule : Matched Net Lengths(Tolerance=5mil) (InDifferentialPair ('ADC_RX_Q') Or InDifferentialPair ('ADC_RX_I'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('ADC_RX_Q') Or InDifferentialPair('ADC_RX_I'))
+Rule Violations :0
+
+Processing Rule : Matched Net Lengths(Tolerance=5mil) (Disabled)(InDifferentialPair ('RF_TX_Q') Or InDifferentialPair ('RF_TX_I'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RF_TX_Q') Or InDifferentialPair('RF_TX_I'))
+Rule Violations :0
+
+Processing Rule : Matched Net Lengths(Tolerance=5mil) (Disabled)(InDifferentialPair ('RF_TX_I_BIAS') Or InDifferentialPair ('RF_TX_Q_BIAS'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RF_TX_I_BIAS') Or InDifferentialPair('RF_TX_Q_BIAS'))
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silkscreen Over Component Pads (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=5mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=6mil) (Max=251mil) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=5mil) (All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=10mil) (Conductor Width=8mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=5mil) (Max=100mil) (Preferred=5mil) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J32-1(5480mil,55.709mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J32-2(5647.323mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J32-2(5312.677mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J33-1(5050mil,55.709mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J33-2(5217.323mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J33-2(4882.677mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J31-1(4620mil,55.709mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J31-2(4787.323mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J31-2(4452.677mil,114.764mil)  Top Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J32-2(5647.323mil,114.764mil)  Bottom Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J32-2(5312.677mil,114.764mil)  Bottom Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J33-2(5217.323mil,114.764mil)  Bottom Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J33-2(4882.677mil,114.764mil)  Bottom Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J31-2(4787.323mil,114.764mil)  Bottom Layer
+   Violation between Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer and 
+                     Pad J31-2(4452.677mil,114.764mil)  Bottom Layer
+Rule Violations :15
+
+Processing Rule : Length Constraint (Min=0mil) (Max=100000mil) (All)
+Rule Violations :0
+
+Processing Rule : Room U_Analog (Bounding Region = (2778.252mil, 424.945mil, 4716.921mil, 1964.748mil) (Disabled)(InComponentClass('U_Analog'))
+Rule Violations :0
+
+Processing Rule : Room U_DAC (Bounding Region = (2188.252mil, 925.26mil, 5019.748mil, 2811.401mil) (Disabled)(InComponentClass('U_DAC'))
+Rule Violations :0
+
+Processing Rule : Room U_Digital_PWR (Bounding Region = (1635.063mil, 691.913mil, 4878.212mil, 2757.622mil) (Disabled)(InComponentClass('U_Digital_PWR'))
+Rule Violations :0
+
+Processing Rule : Room U_Ethernet (Bounding Region = (130.26mil, 430.094mil, 4241.402mil, 3099.748mil) (Disabled)(InComponentClass('U_Ethernet'))
+Rule Violations :0
+
+Processing Rule : Room U_Fabric_IO (Bounding Region = (1631mil, 440.063mil, 3886.401mil, 1082.622mil) (Disabled)(InComponentClass('U_Fabric_IO'))
+Rule Violations :0
+
+Processing Rule : Room U_MEM (Bounding Region = (2400.063mil, 2545.85mil, 3790.102mil, 3158.37mil) (Disabled)(InComponentClass('U_MEM'))
+Rule Violations :0
+
+Processing Rule : Room U_MSS_IO (Bounding Region = (1769.096mil, 850.921mil, 4829.748mil, 3480.232mil) (Disabled)(InComponentClass('U_MSS_IO'))
+Rule Violations :0
+
+Processing Rule : Room U_RF (Bounding Region = (4881.598mil, 1291.913mil, 5836.5mil, 2789.002mil) (Disabled)(InComponentClass('U_RF'))
+Rule Violations :0
+
+Processing Rule : Room U_usb_uart (Bounding Region = (137.937mil, 1168.252mil, 1321.402mil, 3176.252mil) (Disabled)(InComponentClass('U_usb_uart'))
+Rule Violations :0
+
+Processing Rule : Room U_ADC (Bounding Region = (4170.063mil, 1121.599mil, 5058.604mil, 2706.401mil) (Disabled)(InComponentClass('U_ADC'))
+Rule Violations :0
+
+Processing Rule : Room U_ACE (Bounding Region = (3195.535mil, 1146.913mil, 3804.748mil, 2526.087mil) (Disabled)(InComponentClass('U_ACE'))
+Rule Violations :0
+
+Processing Rule : Room U_PWR_Gen (Bounding Region = (139.787mil, 427.779mil, 5325.898mil, 3131.087mil) (Disabled)(InComponentClass('U_PWR_Gen'))
+Rule Violations :0
+
+Processing Rule : Room U_RF_2 (Bounding Region = (3921.913mil, 159.669mil, 5838.693mil, 1794.945mil) (Disabled)(InComponentClass('U_RF_2'))
+Rule Violations :0
+
+Processing Rule : Room U_RTC (Bounding Region = (1739.096mil, 436.913mil, 5464.748mil, 1714.002mil) (Disabled)(InComponentClass('U_RTC'))
+Rule Violations :0
+
+
+Violations Detected : 15
+Time Elapsed        : 00:00:05

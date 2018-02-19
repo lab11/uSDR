@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=VCC3.3_ADC Pin=C58-1
+Removed Pin From Net: NetName=DGND Pin=C58-2
+Removed Pin From Net: NetName=VCC3.3A_ADC Pin=C59-1
+Removed Pin From Net: NetName=AGND Pin=C59-2
+Removed Member From Class: ClassName=U_ADC Member=C58
+Removed Member From Class: ClassName=U_ADC Member=C59

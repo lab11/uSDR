@@ -1,0 +1,34 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: SDR.PcbDoc   6/29/2012  10:17:01 AM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : SDR-RoundHoles.TXT
+ASCII SquareHoles File : SDR-SquareHoles.TXT
+EIA File   : SDR.DRL
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        6mil (0.1524mm)          Round          767              67.95 Inch (1725.84 mm)
+T2        8mil (0.2032mm)          Round          2                0.48 Inch (12.13 mm)
+T3        10mil (0.254mm)          Round          60               17.74 Inch (450.48 mm)
+T4        12mil (0.3048mm)         Round          6                2.61 Inch (66.20 mm)
+T5        14mil (0.3556mm)         Round          9                6.41 Inch (162.77 mm)
+T6        16mil (0.4064mm)         Round          15               10.06 Inch (255.61 mm)
+T7        20mil (0.508mm)          Round          91               27.56 Inch (700.09 mm)
+T8        35.04mil (0.89002mm)     Round          5                0.49 Inch (12.44 mm)
+T9        35.43mil (0.89992mm)     Round          64               22.51 Inch (571.70 mm)
+T10       35.43mil (0.89992mm)     Square         21               17.31 Inch (439.75 mm)
+T11       39.37mil (1mm)           Round          4                0.61 Inch (15.50 mm)
+T12       40.16mil (1.02006mm)     Round          4                0.52 Inch (13.26 mm)
+T13       43.31mil (1.10007mm)     Round          9                1.90 Inch (48.26 mm)
+T14       43.31mil (1.10007mm)     Square         1                0.00 Inch (0.00 mm)
+T15       47.24mil (1.1999mm)      Round          27               15.61 Inch (396.48 mm)
+T16       62.99mil (1.59995mm)     Round          2                0.61 Inch (15.49 mm)
+T17       62.99mil (1.59995mm)     Square         3                0.46 Inch (11.58 mm)
+T18       125mil (3.175mm)         Round          4                12.00 Inch (304.80 mm)
+T19       127.95mil (3.24993mm)    Round          2                0.45 Inch (11.43 mm)
+---------------------------------------------------------------------------
+Totals                                            1096             205.27 Inch (5213.81 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00

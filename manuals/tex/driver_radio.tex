@@ -1,0 +1,189 @@
+\clearpage
+\subsection{radio\_config}
+This driver provides the low-level radio hardware configuration and source address information.
+The radio structure below shows its data member. All the data member are address correlated.
+User has to note that the fabric doesn't perform the address recognition because of the area
+constraint. In order for the radio to operate properly, user has to perform address recoginition
+in time. In addition, multiple source addresses is supported by software configuration. 
+
+\begin{lstlisting}[caption=Radio Structure]
+struct radio{
+	uint8_t multiple_addr_en;
+	uint8_t num_of_multiple_addr;
+	uint32_t* multiple_addr_ptr;
+	uint16_t src_pan_ID;
+	uint8_t src_addr_mode;
+	uint32_t src_addr_LSB, src_addr_MSB;
+};
+\end{lstlisting}
+
+\begin{enumerate}
+	\item void init\_system();
+	\item inline void tx\_fire();
+	\item void RF\_shdn(uint8\_t shdn);
+	\item inline void auto\_ack\_en(uint8\_t ack\_en);
+	\item inline void rx\_agc\_en(uint8\_t agc\_mode);
+	\item inline void ack\_flush();
+	\item inline void auto\_tx\_en(uint8\_t en);
+	\item uint8\_t get\_radio\_mode();
+	\item uint8\_t dest\_addr\_filter(struct rx\_packet\_str* rp, struct radio* r0);
+	\item void set\_multiple\_address(struct radio* r0, uint8\_t en, uint8\_t nu, uint32\_t* map);
+	\item inline uint8\_t set\_src\_addr\_mode(struct radio* r0, uint8\_t sam);
+	\item inline void set\_src\_pan(struct radio* r0, uint16\_t sp);
+	\item inline void set\_src\_addr(struct radio* r0, uint32\_t sa1, uint32\_t sa0);
+\end{enumerate}
+
+
+\subsubsection{void init\_system()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: None\\
+This function initialize the entire radio including MAX2831, GPIO and PDMA drivers. This function
+should be called before any other radio correlated functions.
+
+\subsubsection{inline void tx\_fire()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: None\\
+This function starts transmitting the content of TX fifo.
+
+\subsubsection{void RF\_shdn(uint8\_t shdn)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: radio shutdown\\
+Return value: None\\
+This function turns off all the radio peripherals. (RF, ADCs and DAC)
+
+\subsubsection{inline void auto\_ack\_en(uint8\_t ack\_en)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: ACK enable/disable\\
+Return value: None\\
+\begin{table}[h]
+\centering
+	\begin{tabular}{|c|c|}
+	\hline
+		{\bf Auto ACK en (ack\_en)} & {\bf Effect}\\ \hline
+		0 & Disable Auto ACK\\ \hline
+		1 & Enable Auto ACK\\ \hline
+	\end{tabular}
+	\caption{ACK Enable/Disable}
+\end{table}
+
+
+\subsubsection{inline void rx\_agc\_en(uint8\_t agc\_mode)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: AGC mode\\
+Return value: None\\
+\begin{table}[h]
+\centering
+	\begin{tabular}{|c|c|}
+	\hline
+		{\bf AGC mode (agc\_mode)} & {\bf Effect}\\ \hline
+		0 & Disable AGC\\ \hline
+		1 & SFD-Latch AGC\\ \hline
+		2 & Reserved\\ \hline
+		3 & Continues AGC\\ \hline
+	\end{tabular}
+	\caption{AGC Mode}
+\end{table}
+
+\subsubsection{inline void ack\_flush()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: None\\
+This function flushes the outgoing ACK packet. Once a packet reception completed, user should
+unload the packet from the radio and perform destination address filter. It returns whether
+the address is match to radio's source address or not. In the mean time, user needs to check
+the coming packet has ACK request bit set or not. If the following conditions are met, user
+should call ack\_flush();
+\begin{enumerate}
+	\item Destination address {\bf doesn't} match to local source address.
+	\item Packet passes the CRC check.
+	\item Packet has ACK request field set.
+\end{enumerate}
+
+\subsubsection{inline void auto\_tx\_en(uint8\_t en)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: Auto TX enable\\
+Return value: None\\
+This function enables the automatic transmission of TX fifo. User can achieve concurrent
+transmission using this function.
+\begin{table}[h]
+\centering
+	\begin{tabular}{|c|c|}
+	\hline
+		{\bf Auto TX enable (en)} & {\bf Effect}\\ \hline
+		0 & Disable Auto TX\\ \hline
+		1 & Radio starts transmitting after 192~$\mu$s of any packet received\\ \hline
+	\end{tabular}
+	\caption{Auto TX}
+\end{table}
+
+\subsubsection{uint8\_t get\_radio\_mode()}
+\hangindent=\parindent
+\hangafter=0
+Input argument: None\\
+Return value: Radio mode\\
+This function is mainly used for debugging purpose.
+\begin{table}[h]
+\centering
+	\begin{tabular}{|c|c|c|}
+	\hline
+		{\bf Radio Mode} & {\bf Fabric State} & {\bf Corresponding State}\\ \hline
+		0x00 & RX\_IDLE & Idle Listening\\ \hline
+		0x01 & RX\_COLLECT & RX\\ \hline
+		0x03 & TX\_RX\_TURNAROUND & \\ \hline
+		0x04 & RX\_TX\_TURNAROUND & \\ \hline
+		0x05 & RX\_WAIT\_FOR\_ACK\_GLOSSY & \\ \hline
+		0x08 & RADIO\_OFF & Off\\ \hline
+		0x09 & RADIO\_WARMUP & \\ \hline
+		0x0c & WAIT\_FOR\_TX\_COMPLETE & TX\\ \hline
+		0x0d & RX\_WAIT\_FOR\_ACK\_GLOSSY\_COMPLETE & \\ \hline
+	\end{tabular}
+	\caption{Radio Mode}
+\end{table}
+
+
+\subsubsection{uint8\_t dest\_addr\_filter(struct rx\_packet\_str* rp, struct radio* r0)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: rx\_packet\_str pointer, radio struct pointer\\
+Return value: Match/Mismatch. 0: Mismatch, 1: Match.\\
+
+\subsubsection{void set\_multiple\_address(struct radio* r0, uint8\_t en, uint8\_t nu, uint32\_t* map)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: radio struct pointer, multiple address enable, 
+number of multiple address, multiple address array\\
+Return value: None\\
+
+\subsubsection{inline uint8\_t set\_src\_addr\_mode(struct radio* r0, uint8\_t sam)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: radio struct pointer, Source Address Mode (sam)\\
+Return value: Success/Fail. 0: Fail, 1: Success.\\
+See table~\ref{tab:address_mode} for detail information.
+
+\subsubsection{inline void set\_src\_pan(struct radio* r0, uint16\_t sp)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: radio struct pointer, Source PAN ID (sp)\\
+Return value: None\\
+This function sets the source PAN ID in a radio struct.
+
+\subsubsection{inline void set\_src\_addr(struct radio* r0, uint32\_t sa1, uint32\_t sa0)}
+\hangindent=\parindent
+\hangafter=0
+Input argument: radio struct pointer, Source Address (sa1, sa0)\\
+Return value: None\\
+This function sets the source address in a radio struct. Source address could be as
+long as 8 bytes (source address mode = 3). If 8 bytes mode is selected, source  
+address = {sa1 (higher 32-bits), sa0 (lower 32-bits)}. Similarly, source address = 
+(sa0 \& 0xffff) if 2 bytes mode is selected.
+

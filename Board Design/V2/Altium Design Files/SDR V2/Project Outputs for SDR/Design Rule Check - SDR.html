@@ -1,0 +1,512 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">6/29/2012</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">10:15:12 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:05</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc" class="file"><acronym title="C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc">C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">15</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAKFD"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBKFD">Width Constraint (Min=45.00ohms) (Max=55.00ohms) (Preferred=50.00ohms) ((InNet('RF_RX_ALT') OR InNet('RF_TX_ALT') OR InNet('RF_SW_UB')))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBKFD">Matched Net Lengths(Tolerance=10mil) (InDifferentialPair ('TD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBKFD">Width Constraint (Min=8mil) (Max=10mil) (Preferred=8mil) (InDifferentialPair('TD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWBKFD">Matched Net Lengths(Tolerance=10mil) (InDifferentialPair ('RD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2BKFD">Width Constraint (Min=8mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDACCKFD">Matched Net Lengths(Tolerance=5mil) (InDifferentialPair ('ADC_RX_Q') Or InDifferentialPair ('ADC_RX_I'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAICKFD">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('ADC_RX_Q') Or InDifferentialPair('ADC_RX_I'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAOCKFD">Matched Net Lengths(Tolerance=5mil) (Disabled)(InDifferentialPair ('RF_TX_Q') Or InDifferentialPair ('RF_TX_I'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAUCKFD">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RF_TX_Q') Or InDifferentialPair('RF_TX_I'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA0CKFD">Matched Net Lengths(Tolerance=5mil) (Disabled)(InDifferentialPair ('RF_TX_I_BIAS') Or InDifferentialPair ('RF_TX_Q_BIAS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAADKFD">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InDifferentialPair('RF_TX_I_BIAS') Or InDifferentialPair('RF_TX_Q_BIAS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAGDKFD">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAMDKFD">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDASDKFD">Silkscreen Over Component Pads (Clearance=10mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAYDKFD">Minimum Solder Mask Sliver (Gap=5mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA4DKFD">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEEKFD">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKEKFD">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQEKFD">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWEKFD">Hole Size Constraint (Min=6mil) (Max=251mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2EKFD">Minimum Annular Ring (Minimum=5mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDACFKFD">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAIFKFD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAOFKFD">Power Plane Connect Rule(Relief Connect )(Expansion=10mil) (Conductor Width=8mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAUFKFD">Width Constraint (Min=5mil) (Max=100mil) (Preferred=5mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA0FKFD">Clearance Constraint (Gap=5mil) (All),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAKSKFD">Length Constraint (Min=0mil) (Max=100000mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAQSKFD">Room U_Analog (Bounding Region = (2778.252mil, 424.945mil, 4716.921mil, 1964.748mil) (Disabled)(InComponentClass('U_Analog'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWSKFD">Room U_DAC (Bounding Region = (2188.252mil, 925.26mil, 5019.748mil, 2811.401mil) (Disabled)(InComponentClass('U_DAC'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA2SKFD">Room U_Digital_PWR (Bounding Region = (1635.063mil, 691.913mil, 4878.212mil, 2757.622mil) (Disabled)(InComponentClass('U_Digital_PWR'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDACTKFD">Room U_Ethernet (Bounding Region = (130.26mil, 430.094mil, 4241.402mil, 3099.748mil) (Disabled)(InComponentClass('U_Ethernet'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAITKFD">Room U_Fabric_IO (Bounding Region = (1631mil, 440.063mil, 3886.401mil, 1082.622mil) (Disabled)(InComponentClass('U_Fabric_IO'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAOTKFD">Room U_MEM (Bounding Region = (2400.063mil, 2545.85mil, 3790.102mil, 3158.37mil) (Disabled)(InComponentClass('U_MEM'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAUTKFD">Room U_MSS_IO (Bounding Region = (1769.096mil, 850.921mil, 4829.748mil, 3480.232mil) (Disabled)(InComponentClass('U_MSS_IO'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA0TKFD">Room U_RF (Bounding Region = (4881.598mil, 1291.913mil, 5836.5mil, 2789.002mil) (Disabled)(InComponentClass('U_RF'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAAUKFD">Room U_usb_uart (Bounding Region = (137.937mil, 1168.252mil, 1321.402mil, 3176.252mil) (Disabled)(InComponentClass('U_usb_uart'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAGUKFD">Room U_ADC (Bounding Region = (4170.063mil, 1121.599mil, 5058.604mil, 2706.401mil) (Disabled)(InComponentClass('U_ADC'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAMUKFD">Room U_ACE (Bounding Region = (3195.535mil, 1146.913mil, 3804.748mil, 2526.087mil) (Disabled)(InComponentClass('U_ACE'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASUKFD">Room U_PWR_Gen (Bounding Region = (139.787mil, 427.779mil, 5325.898mil, 3131.087mil) (Disabled)(InComponentClass('U_PWR_Gen'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAYUKFD">Room U_RF_2 (Bounding Region = (3921.913mil, 159.669mil, 5838.693mil, 1794.945mil) (Disabled)(InComponentClass('U_RF_2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA4UKFD">Room U_RTC (Bounding Region = (1739.096mil, 436.913mil, 5464.748mil, 1714.002mil) (Disabled)(InComponentClass('U_RTC'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">15</td>
+</tr>
+</table><br><hr><a name="IDA0FKFD"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=5mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5604.189mil|Location2.X=5633.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5604.189mil|Location2.X=5633.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True">Pad J32-1(5480mil,55.709mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5743.953mil|Location2.X=5828.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5743.953mil|Location2.X=5828.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J32-2(5647.323mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.307mil|Location2.X=5494.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.307mil|Location2.X=5494.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J32-2(5312.677mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.189mil|Location2.X=5203.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5174.189mil|Location2.X=5203.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True">Pad J33-1(5050mil,55.709mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5313.953mil|Location2.X=5398.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5313.953mil|Location2.X=5398.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J33-2(5217.323mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4979.307mil|Location2.X=5064.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4979.307mil|Location2.X=5064.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J33-2(4882.677mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4744.189mil|Location2.X=4773.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4744.189mil|Location2.X=4773.811mil|Location1.Y=427.496mil|Location2.Y=531.921mil|Absolute=True">Pad J31-1(4620mil,55.709mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.953mil|Location2.X=4968.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.953mil|Location2.X=4968.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J31-2(4787.323mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.307mil|Location2.X=4634.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.307mil|Location2.X=4634.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J31-2(4452.677mil,114.764mil)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5743.953mil|Location2.X=5828.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5743.953mil|Location2.X=5828.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J32-2(5647.323mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.307mil|Location2.X=5494.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5409.307mil|Location2.X=5494.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J32-2(5312.677mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5313.953mil|Location2.X=5398.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5313.953mil|Location2.X=5398.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J33-2(5217.323mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4979.307mil|Location2.X=5064.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4979.307mil|Location2.X=5064.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J33-2(4882.677mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.953mil|Location2.X=4968.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4883.953mil|Location2.X=4968.693mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J31-2(4787.323mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=134mil|Location2.X=5869mil|Location1.Y=419mil|Location2.Y=429mil|Absolute=True">Track (0mil,0mil)(5725mil,0mil)  Keep-Out Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.307mil|Location2.X=4634.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\samkuo\Documents\My Dropbox\SDR\Board Design\SDR V2\SDR.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.307mil|Location2.X=4634.047mil|Location1.Y=427.496mil|Location2.Y=650.032mil|Absolute=True">Pad J31-2(4452.677mil,114.764mil)  Bottom Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

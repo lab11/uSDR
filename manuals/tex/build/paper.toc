@@ -1,0 +1,92 @@
+\contentsline {chapter}{\numberline {1}Overview}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Features}{2}{section.1.1}
+\contentsline {chapter}{\numberline {2}Hardware}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Power}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Power Rails}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Power Source}{3}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}1.5V on-chip regulator}{4}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Enabling/Disabling Power}{4}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}RF Frontend}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Test Points}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}IO connection}{4}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}ADC}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}IO connection}{6}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}DAC}{7}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}IO connection}{7}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}User's IO}{7}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}IO connection}{7}{subsection.2.5.1}
+\contentsline {section}{\numberline {2.6}TCXO}{8}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}IO connection}{8}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Ethernet}{9}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Power over Ethernet}{9}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Disabling KSZ8721}{9}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}IO connection}{9}{subsection.2.7.3}
+\contentsline {chapter}{\numberline {3}802.15.4 Application}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Fabric Architecture}{10}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Radio states}{10}{subsection.3.1.1}
+\contentsline {subsubsection}{Off Mode}{10}{section*.13}
+\contentsline {subsubsection}{Idle Listening Mode}{10}{section*.14}
+\contentsline {subsubsection}{Receiving Mode}{10}{section*.15}
+\contentsline {subsubsection}{Transmission Mode}{10}{section*.16}
+\contentsline {subsection}{\numberline {3.1.2}fifos}{12}{subsection.3.1.2}
+\contentsline {subsubsection}{RX fifo}{12}{section*.17}
+\contentsline {subsubsection}{TX fifo}{12}{section*.19}
+\contentsline {subsubsection}{ACK fifo}{12}{section*.20}
+\contentsline {subsubsection}{FWD fifo}{12}{section*.21}
+\contentsline {subsection}{\numberline {3.1.3}Address Map}{13}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Radio Operations}{14}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Receiving}{14}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Transmitting}{14}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}ACK}{14}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Forwarding}{14}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Automatic Gain Control (AGC)}{15}{subsection.3.2.5}
+\contentsline {section}{\numberline {3.3}Interrupts and Pin Activity}{15}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Receiving}{15}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Transmitting}{15}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Drivers}{16}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}max2831}{16}{subsection.3.4.1}
+\contentsline {subsubsection}{void initialize\_chip()}{16}{section*.28}
+\contentsline {subsubsection}{void setToDefaultRX(int register\_number)}{16}{section*.29}
+\contentsline {subsubsection}{void setRegisterValueRX(int register\_number,uint32\_t register\_value)}{16}{section*.30}
+\contentsline {subsubsection}{uint32\_t getRegisterValueRX(int reg\_number)}{16}{section*.31}
+\contentsline {subsubsection}{uint8\_t setLNAGain(uint8\_t LNAGain)}{16}{section*.32}
+\contentsline {subsubsection}{uint8\_t setRXBaseBandVGAGain(uint8\_t VGAGain)}{17}{section*.34}
+\contentsline {subsubsection}{uint8\_t setTXBaseBandVGAGain(uint8\_t VGAGain)}{17}{section*.35}
+\contentsline {subsubsection}{void enRXParVGAGainCtl()}{17}{section*.36}
+\contentsline {subsubsection}{uint8\_t setFreqDivider(int freq)}{17}{section*.37}
+\contentsline {subsubsection}{int getFreqDivider()}{17}{section*.38}
+\contentsline {subsubsection}{uint8\_t setTXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust)}{17}{section*.39}
+\contentsline {subsubsection}{uint8\_t setRXBaseBandLowPassFilterModeFineAdjust (uint8\_t LPFMode, uint8\_t LPFFineAdjust)}{17}{section*.40}
+\contentsline {subsection}{\numberline {3.4.2}tx\_packet}{18}{subsection.3.4.2}
+\contentsline {subsubsection}{inline uint8\_t set\_dest\_addr\_mode(struct tx\_packet\_str* tp, uint8\_t dam)}{19}{section*.43}
+\contentsline {subsubsection}{inline void set\_pan\_id\_comp(struct tx\_packet\_str* tp, uint8\_t ip)}{19}{section*.45}
+\contentsline {subsubsection}{inline void set\_ack(struct tx\_packet\_str* tp, uint8\_t ar)}{19}{section*.48}
+\contentsline {subsubsection}{inline void set\_frame\_pending(struct tx\_packet\_str* tp, uint8\_t fp)}{19}{section*.50}
+\contentsline {subsubsection}{inline void set\_security(struct tx\_packet\_str* tp, uint8\_t se)}{19}{section*.52}
+\contentsline {subsubsection}{inline void set\_frame\_type(struct tx\_packet\_str* tp, uint8\_t ft)}{20}{section*.54}
+\contentsline {subsubsection}{inline void set\_DSN(struct tx\_packet\_str* tp, uint8\_t DSN)}{20}{section*.56}
+\contentsline {subsubsection}{inline void set\_dest\_pan(struct tx\_packet\_str* tp, uint16\_t dp)}{20}{section*.57}
+\contentsline {subsubsection}{inline void set\_dest\_addr(struct tx\_packet\_str* tp, uint32\_t da1, uint32\_t da0)}{20}{section*.58}
+\contentsline {subsubsection}{void calculate\_FCF(struct tx\_packet\_str* tp, uint32\_t* tx\_pkt\_ptr)}{20}{section*.59}
+\contentsline {subsubsection}{uint8\_t calculate\_address(struct tx\_packet\_str* tp, uint32\_t* tx\_pkt\_ptr)}{20}{section*.60}
+\contentsline {subsubsection}{uint8\_t data\_trans (struct tx\_packet\_str* tp)}{21}{section*.61}
+\contentsline {subsection}{\numberline {3.4.3}rx\_packet}{21}{subsection.3.4.3}
+\contentsline {subsubsection}{void read\_fifo(uint32\_t* rdata)}{21}{section*.62}
+\contentsline {subsubsection}{inline uint8\_t isFifoEmpty()}{21}{section*.63}
+\contentsline {subsubsection}{uint8\_t rx\_packet\_create(struct rx\_packet\_str* rp, uint32\_t* rx\_data)}{21}{section*.64}
+\contentsline {subsection}{\numberline {3.4.4}radio\_config}{22}{subsection.3.4.4}
+\contentsline {subsubsection}{void init\_system()}{22}{section*.65}
+\contentsline {subsubsection}{inline void tx\_fire()}{22}{section*.66}
+\contentsline {subsubsection}{void RF\_shdn(uint8\_t shdn)}{22}{section*.67}
+\contentsline {subsubsection}{inline void auto\_ack\_en(uint8\_t ack\_en)}{22}{section*.68}
+\contentsline {subsubsection}{inline void rx\_agc\_en(uint8\_t agc\_mode)}{23}{section*.70}
+\contentsline {subsubsection}{inline void ack\_flush()}{23}{section*.72}
+\contentsline {subsubsection}{inline void auto\_tx\_en(uint8\_t en)}{23}{section*.73}
+\contentsline {subsubsection}{uint8\_t get\_radio\_mode()}{23}{section*.75}
+\contentsline {subsubsection}{uint8\_t dest\_addr\_filter(struct rx\_packet\_str* rp, struct radio* r0)}{23}{section*.77}
+\contentsline {subsubsection}{void set\_multiple\_address(struct radio* r0, uint8\_t en, uint8\_t nu, uint32\_t* map)}{24}{section*.78}
+\contentsline {subsubsection}{inline uint8\_t set\_src\_addr\_mode(struct radio* r0, uint8\_t sam)}{24}{section*.79}
+\contentsline {subsubsection}{inline void set\_src\_pan(struct radio* r0, uint16\_t sp)}{24}{section*.80}
+\contentsline {subsubsection}{inline void set\_src\_addr(struct radio* r0, uint32\_t sa1, uint32\_t sa0)}{24}{section*.81}
+\contentsline {section}{\numberline {3.5}Example Codes (LED counter)}{25}{section.3.5}
+\contentsline {section}{\numberline {3.6}Document Revision History}{27}{section.3.6}

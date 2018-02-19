@@ -1,0 +1,40 @@
+
+ --------------------------------------------------------
+|                                                        |
+|          Synopsys Unified Verilog-A (pVA v2.0)         |
+|                                                        |
+|        Machine Name: caen-vnc05.engin.umich.edu        |
+| Copyright (c) 2011 Synopsys Inc., All Rights Reserved. |
+|                                                        |
+ --------------------------------------------------------
+
+libepva built by pvamgr synmake_pva_build  on Tue Feb 14 16:22:41 PST 2012
+HSP_HOME:   /usr/caen/hspice-2011.09-SP2/hspice
+HSP_ARCH:   linux
+HSP_GCC :   /usr/caen/hspice-2011.09-SP2/hspice/GNU/amd64/gcc-4.2.2-static/bin/gcc 
+HSP_GCC_VER:   4.2.2
+Working-Dir: /afs/umich.edu/user/s/a/samkuo/SVN/sdr/RGB/led_driver/spice/crt2
+Args:        -p hsp -t spi -f led_driver.pvadir/pvaHDL.lis -o led_driver.pvadir 
+
+
+Begin of pVA compiling on Sun Oct 28 14:50:32 2012
+
+Parsing './../lib/or.va'
+Parsing include file '/usr/caen/hspice-2011.09-SP2/hspice/include/disciplines.vams'
+Parsing include file '/usr/caen/hspice-2011.09-SP2/hspice/include/constants.vams'
+
+End of pVA compiling on Sun Oct 28 14:50:32 2012
+
+
+End of build pVA DB on Sun Oct 28 14:50:32 2012
+
+
+led_driver.pvadir/pvaRTL_linux.so is reused
+
+End of pVA elaboration on Sun Oct 28 14:50:32 2012
+
+*pvaI* Creating Verilog-A module 'orgate' for X5
+
+
+pVA concluded on Sun Oct 28 14:50:32 2012
+
